@@ -1,0 +1,12 @@
+C:\Users\sm416\OneDrive\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\x64\pdfium.dll
+C:\Users\sm416\OneDrive\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\PdfPrintUtility.exe
+C:\Users\sm416\OneDrive\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\PdfPrintUtility.dll
+C:\Users\sm416\OneDrive\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\PdfPrintUtility.deps.json
+C:\Users\sm416\OneDrive\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\PdfPrintUtility.runtimeconfig.json
+C:\Users\sm416\OneDrive\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\PdfPrintUtility.pdb
+C:\Users\sm416\OneDrive\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\Microsoft.Win32.SystemEvents.dll
+C:\Users\sm416\OneDrive\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\PdfiumViewer.dll
+C:\Users\sm416\OneDrive\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\System.Drawing.Common.dll
+C:\Users\sm416\OneDrive\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\System.Private.Windows.Core.dll
+C:\Users\sm416\OneDrive\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\System.Private.Windows.GdiPlus.dll
+C:\Users\sm416\OneDrive\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\nl\PdfiumViewer.resources.dll
