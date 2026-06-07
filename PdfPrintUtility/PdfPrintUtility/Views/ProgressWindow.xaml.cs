@@ -11,11 +11,15 @@ namespace PdfPrintUtility.Views
     public partial class ProgressWindow : Window
     {
         private readonly List<string> _files;
+        private readonly PrintSettings _settings;
+        private readonly string _pageRange;
 
-        public ProgressWindow(List<string> files)
+        public ProgressWindow(List<string> files, PrintSettings settings, string pageRange)
         {
             InitializeComponent();
             _files = files;
+            _settings = settings;
+            _pageRange = pageRange;
             Loaded += ProgressWindow_Loaded;
         }
 
@@ -31,7 +35,13 @@ namespace PdfPrintUtility.Views
             int successCount = 0;
             int failCount = 0;
 
-            var settings = SettingsManager.Load();
+            var progress = new Progress<(int Index, string FileName)>(data => 
+            {
+                StatusTextBlock.Text = $"Printing {data.Index + 1} of {_files.Count}...";
+                DetailsTextBlock.Text = data.FileName;
+                PrintProgressBar.Value = data.Index;
+            });
+            var progressReporter = (IProgress<(int, string)>)progress;
 
             // Run printing on a background thread to keep UI responsive
             await Task.Run(() =>
@@ -41,34 +51,29 @@ namespace PdfPrintUtility.Views
                     string file = _files[i];
                     string fileName = Path.GetFileName(file);
                     
-                    Dispatcher.Invoke(() =>
-                    {
-                        StatusTextBlock.Text = $"Printing {i + 1} of {_files.Count}...";
-                        DetailsTextBlock.Text = fileName;
-                        PrintProgressBar.Value = i;
-                    });
+                    progressReporter.Report((i, fileName));
 
-                    bool success = PrintManager.PrintPdf(file, settings, out string errorMessage);
+                    bool success = PrintManager.PrintFile(file, _settings, _pageRange, out string errorMessage);
                     
                     if (success)
                     {
                         successCount++;
-                        Logger.LogPrint(fileName, settings.DefaultPrinter, "Success");
+                        Logger.LogPrint(fileName, _settings.DefaultPrinter, "Success");
                     }
                     else
                     {
                         failCount++;
-                        Logger.LogPrint(fileName, settings.DefaultPrinter, "Failed", errorMessage);
+                        Logger.LogPrint(fileName, _settings.DefaultPrinter, "Failed", errorMessage);
                     }
                 }
             });
 
             PrintProgressBar.Value = _files.Count;
-            StatusTextBlock.Text = "Finished!";
-            DetailsTextBlock.Text = $"Successfully printed: {successCount}, Failed: {failCount}";
+            StatusTextBlock.Text = "Finished sending to printer!";
+            DetailsTextBlock.Text = $"Successfully queued: {successCount}, Failed: {failCount}";
 
-            string summaryMsg = $"Print job completed.\n\nTotal files: {_files.Count}\nSuccess: {successCount}\nFailed: {failCount}";
-            MessageBox.Show(summaryMsg, "Print Summary", MessageBoxButton.OK, MessageBoxImage.Information);
+            string summaryMsg = $"All documents have been sent to the printer spooler.\n\nTotal files: {_files.Count}\nSuccess: {successCount}\nFailed: {failCount}\n\nThe physical printer may still be printing.";
+            MessageBox.Show(summaryMsg, "Print Job Queued", MessageBoxButton.OK, MessageBoxImage.Information);
             
             Application.Current.Shutdown();
         }

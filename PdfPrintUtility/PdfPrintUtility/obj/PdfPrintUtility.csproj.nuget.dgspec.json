@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sm416\\OneDrive\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sm416\\OneDrive\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj": {
-      "version": "1.0.0",
+    "C:\\Users\\Admin\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj": {
+      "version": "1.0.6.4",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sm416\\OneDrive\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
         "projectName": "PdfPrintUtility",
-        "projectPath": "C:\\Users\\sm416\\OneDrive\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
-        "packagesPath": "C:\\Users\\sm416\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sm416\\OneDrive\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sm416\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,12 +40,24 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net9.0-windows7.0": {
           "targetAlias": "net9.0-windows",
           "dependencies": {
+            "Autoupdater.NET.Official": {
+              "target": "Package",
+              "version": "[1.9.2, )"
+            },
+            "Microsoft.Web.WebView2": {
+              "target": "Package",
+              "version": "[1.0.3967.48, )"
+            },
+            "PDFsharp": {
+              "target": "Package",
+              "version": "[6.2.4, )"
+            },
             "PdfiumViewer": {
               "target": "Package",
               "version": "[2.13.0, )"
@@ -54,9 +66,9 @@
               "target": "Package",
               "version": "[2018.4.8.256, )"
             },
-            "System.Drawing.Common": {
+            "gong-wpf-dragdrop": {
               "target": "Package",
-              "version": "[10.0.8, )"
+              "version": "[4.0.0, )"
             }
           },
           "imports": [
@@ -70,15 +82,33 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.13, 9.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[9.0.13, 9.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.13, 9.0.13]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[9.0.13, 9.0.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             },
-            "Microsoft.WindowsDesktop.App.WPF": {
+            "Microsoft.WindowsDesktop.App": {
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.310/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

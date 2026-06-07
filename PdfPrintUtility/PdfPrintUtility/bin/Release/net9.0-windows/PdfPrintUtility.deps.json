@@ -1,0 +1,220 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "PdfPrintUtility/1.0.0.0": {
+        "dependencies": {
+          "Autoupdater.NET.Official": "1.9.2",
+          "PdfiumViewer": "2.13.0",
+          "System.Drawing.Common": "10.0.8"
+        },
+        "runtime": {
+          "PdfPrintUtility.dll": {}
+        }
+      },
+      "Autoupdater.NET.Official/1.9.2": {
+        "dependencies": {
+          "Microsoft.Web.WebView2": "1.0.2592.51"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/AutoUpdater.NET.dll": {
+            "assemblyVersion": "1.9.2.0",
+            "fileVersion": "1.9.2.0"
+          }
+        },
+        "resources": {
+          "lib/net8.0-windows7.0/ar/AutoUpdater.NET.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/net8.0-windows7.0/cs/AutoUpdater.NET.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0-windows7.0/da/AutoUpdater.NET.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net8.0-windows7.0/de/AutoUpdater.NET.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0-windows7.0/es/AutoUpdater.NET.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0-windows7.0/fr/AutoUpdater.NET.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0-windows7.0/it/AutoUpdater.NET.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0-windows7.0/ja-JP/AutoUpdater.NET.resources.dll": {
+            "locale": "ja-JP"
+          },
+          "lib/net8.0-windows7.0/ko/AutoUpdater.NET.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0-windows7.0/lv/AutoUpdater.NET.resources.dll": {
+            "locale": "lv"
+          },
+          "lib/net8.0-windows7.0/nl/AutoUpdater.NET.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net8.0-windows7.0/pl/AutoUpdater.NET.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0-windows7.0/pt-BR/AutoUpdater.NET.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0-windows7.0/pt/AutoUpdater.NET.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net8.0-windows7.0/ru/AutoUpdater.NET.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0-windows7.0/sk/AutoUpdater.NET.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net8.0-windows7.0/sv/AutoUpdater.NET.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net8.0-windows7.0/th/AutoUpdater.NET.resources.dll": {
+            "locale": "th"
+          },
+          "lib/net8.0-windows7.0/tr/AutoUpdater.NET.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0-windows7.0/zh-TW/AutoUpdater.NET.resources.dll": {
+            "locale": "zh-TW"
+          },
+          "lib/net8.0-windows7.0/zh/AutoUpdater.NET.resources.dll": {
+            "locale": "zh"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.2592.51": {
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Web.WebView2.Core.dll": {
+            "assemblyVersion": "1.0.2592.51",
+            "fileVersion": "1.0.2592.51"
+          },
+          "lib/netcoreapp3.0/Microsoft.Web.WebView2.WinForms.dll": {
+            "assemblyVersion": "1.0.2592.51",
+            "fileVersion": "1.0.2592.51"
+          },
+          "lib/netcoreapp3.0/Microsoft.Web.WebView2.Wpf.dll": {
+            "assemblyVersion": "1.0.2592.51",
+            "fileVersion": "1.0.2592.51"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/WebView2Loader.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "1.0.2592.51"
+          },
+          "runtimes/win-x64/native/WebView2Loader.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.0.2592.51"
+          },
+          "runtimes/win-x86/native/WebView2Loader.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.0.2592.51"
+          }
+        }
+      },
+      "Microsoft.Win32.SystemEvents/10.0.8": {
+        "runtime": {
+          "lib/net9.0/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.826.23019"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.826.23019"
+          }
+        }
+      },
+      "PdfiumViewer/2.13.0": {
+        "runtime": {
+          "lib/net20/PdfiumViewer.dll": {
+            "assemblyVersion": "2.13.0.0",
+            "fileVersion": "2.13.0.0"
+          }
+        },
+        "resources": {
+          "lib/net20/nl/PdfiumViewer.resources.dll": {
+            "locale": "nl"
+          }
+        }
+      },
+      "System.Drawing.Common/10.0.8": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "10.0.8"
+        },
+        "runtime": {
+          "lib/net9.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.826.23019"
+          },
+          "lib/net9.0/System.Private.Windows.Core.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.826.23019"
+          },
+          "lib/net9.0/System.Private.Windows.GdiPlus.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.826.23019"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PdfPrintUtility/1.0.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Autoupdater.NET.Official/1.9.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wVB0YMk5Dyc2UMUb46t5TVvzipfgkNHtuKh04wp14k/32nY7wMTz8gSMgiaX9WAHesW60K6J8uGz5G8gyGkEPQ==",
+      "path": "autoupdater.net.official/1.9.2",
+      "hashPath": "autoupdater.net.official.1.9.2.nupkg.sha512"
+    },
+    "Microsoft.Web.WebView2/1.0.2592.51": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AC9aWCthS2JvddYA1jl4dFpLBW3GsLRInhp5dkcBzaFXsRehfoUN9olIUsrH41eNaNYd7z9NRvmy81aUA5aD1g==",
+      "path": "microsoft.web.webview2/1.0.2592.51",
+      "hashPath": "microsoft.web.webview2.1.0.2592.51.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/10.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-J9+VT0lkrA7wW38CGxO2sZd+iH9C0qzioMi/2ztpT32WOVr+04uNqFIrxisTRf+mvtXLtdqcio1AoS0vfAVLLQ==",
+      "path": "microsoft.win32.systemevents/10.0.8",
+      "hashPath": "microsoft.win32.systemevents.10.0.8.nupkg.sha512"
+    },
+    "PdfiumViewer/2.13.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nw4owBmJzDVXoMRjCnqPbET07CPOawwhcNjt+PyRaSxONN9bsFF+cm9kcMsDLEAEaxsiDJo5jls8bCQjvjidkA==",
+      "path": "pdfiumviewer/2.13.0",
+      "hashPath": "pdfiumviewer.2.13.0.nupkg.sha512"
+    },
+    "System.Drawing.Common/10.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LCISd6JAF80vsy9L6wuetZeOMR3FH+SwKovw5Zl0Nov9pB9ZOiCSqvOfMzooypPItQLv0mGfEePjJ1nCCQztNw==",
+      "path": "system.drawing.common/10.0.8",
+      "hashPath": "system.drawing.common.10.0.8.nupkg.sha512"
+    }
+  }
+}

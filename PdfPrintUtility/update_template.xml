@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: Only bump <version> here when a new installer is ready at <url>.       -->
+<!-- Copy this file to Z:\Software\PdfPrintUtility\update.xml after each release.      -->
+<!-- Version must match AssemblyVersion in PdfPrintUtility.csproj for no-update state. -->
+<item>
+    <version>1.0.0.0</version>
+    <url>file://BhavinLenovo/D/Software/PdfPrintUtility/PdfPrintUtilitySetup.exe</url>
+    <changelog>https://github.com/your-repo/releases</changelog>
+    <mandatory>false</mandatory>
+</item>

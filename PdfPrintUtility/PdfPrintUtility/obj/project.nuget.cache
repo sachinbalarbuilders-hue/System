@@ -1,22 +1,31 @@
 {
   "version": 2,
-  "dgSpecHash": "+QU0/u8AVKw=",
+  "dgSpecHash": "nteZImGLKTE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\sm416\\OneDrive\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\sm416\\.nuget\\packages\\microsoft.win32.systemevents\\10.0.8\\microsoft.win32.systemevents.10.0.8.nupkg.sha512",
-    "C:\\Users\\sm416\\.nuget\\packages\\pdfiumviewer\\2.13.0\\pdfiumviewer.2.13.0.nupkg.sha512",
-    "C:\\Users\\sm416\\.nuget\\packages\\pdfiumviewer.native.x86_64.v8-xfa\\2018.4.8.256\\pdfiumviewer.native.x86_64.v8-xfa.2018.4.8.256.nupkg.sha512",
-    "C:\\Users\\sm416\\.nuget\\packages\\system.drawing.common\\10.0.8\\system.drawing.common.10.0.8.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\autoupdater.net.official\\1.9.2\\autoupdater.net.official.1.9.2.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\gong-wpf-dragdrop\\4.0.0\\gong-wpf-dragdrop.4.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.3\\microsoft.extensions.logging.abstractions.8.0.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.web.webview2\\1.0.3967.48\\microsoft.web.webview2.1.0.3967.48.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\pdfiumviewer\\2.13.0\\pdfiumviewer.2.13.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\pdfiumviewer.native.x86_64.v8-xfa\\2018.4.8.256\\pdfiumviewer.native.x86_64.v8-xfa.2018.4.8.256.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\pdfsharp\\6.2.4\\pdfsharp.6.2.4.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.security.cryptography.pkcs\\8.0.1\\system.security.cryptography.pkcs.8.0.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.13\\microsoft.netcore.app.ref.9.0.13.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.13\\microsoft.windowsdesktop.app.ref.9.0.13.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.13\\microsoft.aspnetcore.app.ref.9.0.13.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.13\\microsoft.netcore.app.host.win-x64.9.0.13.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1701",
       "level": "Warning",
       "message": "Package 'PdfiumViewer 2.13.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0-windows7.0'. This package may not be fully compatible with your project.",
-      "projectPath": "C:\\Users\\sm416\\OneDrive\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\sm416\\OneDrive\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
+      "filePath": "C:\\Users\\Admin\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
       "libraryId": "PdfiumViewer",
       "targetGraphs": [
         "net9.0-windows7.0"

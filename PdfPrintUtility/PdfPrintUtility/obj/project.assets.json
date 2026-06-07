@@ -2,99 +2,416 @@
   "version": 3,
   "targets": {
     "net9.0-windows7.0": {
-      "Microsoft.Win32.SystemEvents/10.0.8": {
+      "Autoupdater.NET.Official/1.9.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Web.WebView2": "1.0.2592.51"
+        },
+        "compile": {
+          "lib/net8.0-windows7.0/AutoUpdater.NET.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/AutoUpdater.NET.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ],
+        "resource": {
+          "lib/net8.0-windows7.0/ar/AutoUpdater.NET.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/net8.0-windows7.0/cs/AutoUpdater.NET.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0-windows7.0/da/AutoUpdater.NET.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net8.0-windows7.0/de/AutoUpdater.NET.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0-windows7.0/es/AutoUpdater.NET.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0-windows7.0/fr/AutoUpdater.NET.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0-windows7.0/it/AutoUpdater.NET.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0-windows7.0/ja-JP/AutoUpdater.NET.resources.dll": {
+            "locale": "ja-JP"
+          },
+          "lib/net8.0-windows7.0/ko/AutoUpdater.NET.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0-windows7.0/lv/AutoUpdater.NET.resources.dll": {
+            "locale": "lv"
+          },
+          "lib/net8.0-windows7.0/nl/AutoUpdater.NET.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net8.0-windows7.0/pl/AutoUpdater.NET.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0-windows7.0/pt-BR/AutoUpdater.NET.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0-windows7.0/pt/AutoUpdater.NET.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net8.0-windows7.0/ru/AutoUpdater.NET.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0-windows7.0/sk/AutoUpdater.NET.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net8.0-windows7.0/sv/AutoUpdater.NET.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net8.0-windows7.0/th/AutoUpdater.NET.resources.dll": {
+            "locale": "th"
+          },
+          "lib/net8.0-windows7.0/tr/AutoUpdater.NET.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0-windows7.0/zh-TW/AutoUpdater.NET.resources.dll": {
+            "locale": "zh-TW"
+          },
+          "lib/net8.0-windows7.0/zh/AutoUpdater.NET.resources.dll": {
+            "locale": "zh"
+          }
+        }
+      },
+      "gong-wpf-dragdrop/4.0.0": {
         "type": "package",
         "compile": {
-          "lib/net9.0/Microsoft.Win32.SystemEvents.dll": {
+          "lib/net8.0-windows7.0/GongSolutions.WPF.DragDrop.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Win32.SystemEvents.dll": {
+          "lib/net8.0-windows7.0/GongSolutions.WPF.DragDrop.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/net8.0/_._": {}
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets": {}
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.3967.48": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Microsoft.Web.WebView2.targets": {}
         },
         "runtimeTargets": {
-          "runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.dll": {
+          "runtimes/win-arm64/native/WebView2Loader.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/WebView2Loader.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/WebView2Loader.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "PdfiumViewer/2.13.0": {
+        "type": "package",
+        "compile": {
+          "lib/net20/PdfiumViewer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net20/PdfiumViewer.dll": {
+            "related": ".xml"
+          }
+        },
+        "resource": {
+          "lib/net20/nl/PdfiumViewer.resources.dll": {
+            "locale": "nl"
+          }
+        }
+      },
+      "PdfiumViewer.Native.x86_64.v8-xfa/2018.4.8.256": {
+        "type": "package",
+        "build": {
+          "Build/PdfiumViewer.Native.x86_64.v8-xfa.props": {}
+        }
+      },
+      "PDFsharp/6.2.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
+          "System.Security.Cryptography.Pkcs": "8.0.1"
+        },
+        "compile": {
+          "lib/net9.0/PdfSharp.BarCodes.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Charting.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Cryptography.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Quality.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Shared.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Snippets.dll": {
+            "related": ".pdb"
+          },
+          "lib/net9.0/PdfSharp.System.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.WPFonts.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.dll": {
+            "related": ".BarCodes.pdb;.BarCodes.xml;.Charting.pdb;.Charting.xml;.Cryptography.pdb;.Cryptography.xml;.pdb;.Quality.pdb;.Quality.xml;.Shared.pdb;.Shared.xml;.Snippets.pdb;.System.pdb;.System.xml;.WPFonts.pdb;.WPFonts.xml;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/PdfSharp.BarCodes.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Charting.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Cryptography.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Quality.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Shared.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Snippets.dll": {
+            "related": ".pdb"
+          },
+          "lib/net9.0/PdfSharp.System.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.WPFonts.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.dll": {
+            "related": ".BarCodes.pdb;.BarCodes.xml;.Charting.pdb;.Charting.xml;.Cryptography.pdb;.Cryptography.xml;.pdb;.Quality.pdb;.Quality.xml;.Shared.pdb;.Shared.xml;.Snippets.pdb;.System.pdb;.System.xml;.WPFonts.pdb;.WPFonts.xml;.xml"
+          }
+        }
+      },
+      "System.Security.Cryptography.Pkcs/8.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
         }
-      },
-      "PdfiumViewer/2.13.0": {
-        "type": "package",
-        "compile": {
-          "lib/net20/PdfiumViewer.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net20/PdfiumViewer.dll": {
-            "related": ".xml"
-          }
-        },
-        "resource": {
-          "lib/net20/nl/PdfiumViewer.resources.dll": {
-            "locale": "nl"
-          }
-        }
-      },
-      "PdfiumViewer.Native.x86_64.v8-xfa/2018.4.8.256": {
-        "type": "package",
-        "build": {
-          "Build/PdfiumViewer.Native.x86_64.v8-xfa.props": {}
-        }
-      },
-      "System.Drawing.Common/10.0.8": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Win32.SystemEvents": "10.0.8"
-        },
-        "compile": {
-          "lib/net9.0/System.Drawing.Common.dll": {
-            "related": ".pdb;.xml"
-          },
-          "lib/net9.0/System.Private.Windows.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/net9.0/System.Private.Windows.GdiPlus.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net9.0/System.Drawing.Common.dll": {
-            "related": ".pdb;.xml"
-          },
-          "lib/net9.0/System.Private.Windows.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/net9.0/System.Private.Windows.GdiPlus.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/net8.0/_._": {}
-        }
       }
     },
     "net9.0-windows7.0/win-x64": {
-      "Microsoft.Win32.SystemEvents/10.0.8": {
+      "Autoupdater.NET.Official/1.9.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Web.WebView2": "1.0.2592.51"
+        },
+        "compile": {
+          "lib/net8.0-windows7.0/AutoUpdater.NET.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/AutoUpdater.NET.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ],
+        "resource": {
+          "lib/net8.0-windows7.0/ar/AutoUpdater.NET.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/net8.0-windows7.0/cs/AutoUpdater.NET.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0-windows7.0/da/AutoUpdater.NET.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net8.0-windows7.0/de/AutoUpdater.NET.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0-windows7.0/es/AutoUpdater.NET.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0-windows7.0/fr/AutoUpdater.NET.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0-windows7.0/it/AutoUpdater.NET.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0-windows7.0/ja-JP/AutoUpdater.NET.resources.dll": {
+            "locale": "ja-JP"
+          },
+          "lib/net8.0-windows7.0/ko/AutoUpdater.NET.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0-windows7.0/lv/AutoUpdater.NET.resources.dll": {
+            "locale": "lv"
+          },
+          "lib/net8.0-windows7.0/nl/AutoUpdater.NET.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net8.0-windows7.0/pl/AutoUpdater.NET.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0-windows7.0/pt-BR/AutoUpdater.NET.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0-windows7.0/pt/AutoUpdater.NET.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net8.0-windows7.0/ru/AutoUpdater.NET.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0-windows7.0/sk/AutoUpdater.NET.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net8.0-windows7.0/sv/AutoUpdater.NET.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net8.0-windows7.0/th/AutoUpdater.NET.resources.dll": {
+            "locale": "th"
+          },
+          "lib/net8.0-windows7.0/tr/AutoUpdater.NET.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0-windows7.0/zh-TW/AutoUpdater.NET.resources.dll": {
+            "locale": "zh-TW"
+          },
+          "lib/net8.0-windows7.0/zh/AutoUpdater.NET.resources.dll": {
+            "locale": "zh"
+          }
+        }
+      },
+      "gong-wpf-dragdrop/4.0.0": {
         "type": "package",
         "compile": {
-          "lib/net9.0/Microsoft.Win32.SystemEvents.dll": {
+          "lib/net8.0-windows7.0/GongSolutions.WPF.DragDrop.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.dll": {
+          "lib/net8.0-windows7.0/GongSolutions.WPF.DragDrop.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/net8.0/_._": {}
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets": {}
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.3967.48": {
+        "type": "package",
+        "native": {
+          "runtimes/win-x64/native/WebView2Loader.dll": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.Web.WebView2.targets": {}
         }
       },
       "PdfiumViewer/2.13.0": {
@@ -121,73 +438,465 @@
           "Build/PdfiumViewer.Native.x86_64.v8-xfa.props": {}
         }
       },
-      "System.Drawing.Common/10.0.8": {
+      "PDFsharp/6.2.4": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Win32.SystemEvents": "10.0.8"
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
+          "System.Security.Cryptography.Pkcs": "8.0.1"
         },
         "compile": {
-          "lib/net9.0/System.Drawing.Common.dll": {
+          "lib/net9.0/PdfSharp.BarCodes.dll": {
             "related": ".pdb;.xml"
           },
-          "lib/net9.0/System.Private.Windows.Core.dll": {
-            "related": ".xml"
+          "lib/net9.0/PdfSharp.Charting.dll": {
+            "related": ".pdb;.xml"
           },
-          "lib/net9.0/System.Private.Windows.GdiPlus.dll": {
+          "lib/net9.0/PdfSharp.Cryptography.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Quality.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Shared.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Snippets.dll": {
+            "related": ".pdb"
+          },
+          "lib/net9.0/PdfSharp.System.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.WPFonts.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.dll": {
+            "related": ".BarCodes.pdb;.BarCodes.xml;.Charting.pdb;.Charting.xml;.Cryptography.pdb;.Cryptography.xml;.pdb;.Quality.pdb;.Quality.xml;.Shared.pdb;.Shared.xml;.Snippets.pdb;.System.pdb;.System.xml;.WPFonts.pdb;.WPFonts.xml;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/PdfSharp.BarCodes.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Charting.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Cryptography.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Quality.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Shared.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.Snippets.dll": {
+            "related": ".pdb"
+          },
+          "lib/net9.0/PdfSharp.System.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.WPFonts.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/net9.0/PdfSharp.dll": {
+            "related": ".BarCodes.pdb;.BarCodes.xml;.Charting.pdb;.Charting.xml;.Cryptography.pdb;.Cryptography.xml;.pdb;.Quality.pdb;.Quality.xml;.Shared.pdb;.Shared.xml;.Snippets.pdb;.System.pdb;.System.xml;.WPFonts.pdb;.WPFonts.xml;.xml"
+          }
+        }
+      },
+      "System.Security.Cryptography.Pkcs/8.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/System.Drawing.Common.dll": {
-            "related": ".pdb;.xml"
-          },
-          "lib/net9.0/System.Private.Windows.Core.dll": {
-            "related": ".xml"
-          },
-          "lib/net9.0/System.Private.Windows.GdiPlus.dll": {
+          "runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/net8.0/_._": {}
+          "buildTransitive/net6.0/_._": {}
         }
       }
     }
   },
   "libraries": {
-    "Microsoft.Win32.SystemEvents/10.0.8": {
-      "sha512": "J9+VT0lkrA7wW38CGxO2sZd+iH9C0qzioMi/2ztpT32WOVr+04uNqFIrxisTRf+mvtXLtdqcio1AoS0vfAVLLQ==",
+    "Autoupdater.NET.Official/1.9.2": {
+      "sha512": "wVB0YMk5Dyc2UMUb46t5TVvzipfgkNHtuKh04wp14k/32nY7wMTz8gSMgiaX9WAHesW60K6J8uGz5G8gyGkEPQ==",
       "type": "package",
-      "path": "microsoft.win32.systemevents/10.0.8",
+      "path": "autoupdater.net.official/1.9.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "autoupdater.net.official.1.9.2.nupkg.sha512",
+        "autoupdater.net.official.nuspec",
+        "docs/README.md",
+        "lib/net462/AutoUpdater.NET.dll",
+        "lib/net462/AutoUpdater.NET.pdb",
+        "lib/net462/AutoUpdater.NET.xml",
+        "lib/net462/ar/AutoUpdater.NET.resources.dll",
+        "lib/net462/cs/AutoUpdater.NET.resources.dll",
+        "lib/net462/da/AutoUpdater.NET.resources.dll",
+        "lib/net462/de/AutoUpdater.NET.resources.dll",
+        "lib/net462/es/AutoUpdater.NET.resources.dll",
+        "lib/net462/fr/AutoUpdater.NET.resources.dll",
+        "lib/net462/it/AutoUpdater.NET.resources.dll",
+        "lib/net462/ja-JP/AutoUpdater.NET.resources.dll",
+        "lib/net462/ko/AutoUpdater.NET.resources.dll",
+        "lib/net462/lv/AutoUpdater.NET.resources.dll",
+        "lib/net462/nl/AutoUpdater.NET.resources.dll",
+        "lib/net462/pl/AutoUpdater.NET.resources.dll",
+        "lib/net462/pt-BR/AutoUpdater.NET.resources.dll",
+        "lib/net462/pt/AutoUpdater.NET.resources.dll",
+        "lib/net462/ru/AutoUpdater.NET.resources.dll",
+        "lib/net462/sk/AutoUpdater.NET.resources.dll",
+        "lib/net462/sv/AutoUpdater.NET.resources.dll",
+        "lib/net462/th/AutoUpdater.NET.resources.dll",
+        "lib/net462/tr/AutoUpdater.NET.resources.dll",
+        "lib/net462/zh-TW/AutoUpdater.NET.resources.dll",
+        "lib/net462/zh/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/AutoUpdater.NET.dll",
+        "lib/net5.0-windows7.0/AutoUpdater.NET.pdb",
+        "lib/net5.0-windows7.0/AutoUpdater.NET.xml",
+        "lib/net5.0-windows7.0/ar/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/cs/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/da/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/de/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/es/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/fr/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/it/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/ja-JP/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/ko/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/lv/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/nl/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/pl/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/pt-BR/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/pt/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/ru/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/sk/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/sv/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/th/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/tr/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/zh-TW/AutoUpdater.NET.resources.dll",
+        "lib/net5.0-windows7.0/zh/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/AutoUpdater.NET.dll",
+        "lib/net6.0-windows7.0/AutoUpdater.NET.pdb",
+        "lib/net6.0-windows7.0/AutoUpdater.NET.xml",
+        "lib/net6.0-windows7.0/ar/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/cs/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/da/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/de/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/es/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/fr/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/it/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/ja-JP/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/ko/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/lv/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/nl/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/pl/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/pt-BR/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/pt/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/ru/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/sk/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/sv/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/th/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/tr/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/zh-TW/AutoUpdater.NET.resources.dll",
+        "lib/net6.0-windows7.0/zh/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/AutoUpdater.NET.dll",
+        "lib/net7.0-windows7.0/AutoUpdater.NET.pdb",
+        "lib/net7.0-windows7.0/AutoUpdater.NET.xml",
+        "lib/net7.0-windows7.0/ar/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/cs/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/da/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/de/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/es/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/fr/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/it/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/ja-JP/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/ko/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/lv/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/nl/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/pl/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/pt-BR/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/pt/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/ru/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/sk/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/sv/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/th/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/tr/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/zh-TW/AutoUpdater.NET.resources.dll",
+        "lib/net7.0-windows7.0/zh/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/AutoUpdater.NET.dll",
+        "lib/net8.0-windows7.0/AutoUpdater.NET.pdb",
+        "lib/net8.0-windows7.0/AutoUpdater.NET.xml",
+        "lib/net8.0-windows7.0/ar/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/cs/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/da/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/de/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/es/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/fr/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/it/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/ja-JP/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/ko/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/lv/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/nl/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/pl/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/pt-BR/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/pt/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/ru/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/sk/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/sv/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/th/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/tr/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/zh-TW/AutoUpdater.NET.resources.dll",
+        "lib/net8.0-windows7.0/zh/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/AutoUpdater.NET.dll",
+        "lib/netcoreapp3.1/AutoUpdater.NET.pdb",
+        "lib/netcoreapp3.1/AutoUpdater.NET.xml",
+        "lib/netcoreapp3.1/ar/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/cs/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/da/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/de/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/es/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/fr/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/it/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/ja-JP/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/ko/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/lv/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/nl/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/pl/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/pt-BR/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/pt/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/ru/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/sk/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/sv/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/th/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/tr/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/zh-TW/AutoUpdater.NET.resources.dll",
+        "lib/netcoreapp3.1/zh/AutoUpdater.NET.resources.dll"
+      ]
+    },
+    "gong-wpf-dragdrop/4.0.0": {
+      "sha512": "nDj86v1XHhgmQR8PPo/uDDp/xdLDxcqZdvIwSxWAHQPiRX/GBXK13FYY0C2xQow9RSl6j5FKLk8xoYrdb52vqg==",
+      "type": "package",
+      "path": "gong-wpf-dragdrop/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "GongSolutions.Wpf.DragDrop.png",
+        "LICENSE",
+        "gong-wpf-dragdrop.4.0.0.nupkg.sha512",
+        "gong-wpf-dragdrop.nuspec",
+        "lib/net462/GongSolutions.WPF.DragDrop.dll",
+        "lib/net462/GongSolutions.WPF.DragDrop.xml",
+        "lib/net6.0-windows7.0/GongSolutions.WPF.DragDrop.dll",
+        "lib/net6.0-windows7.0/GongSolutions.WPF.DragDrop.xml",
+        "lib/net8.0-windows7.0/GongSolutions.WPF.DragDrop.dll",
+        "lib/net8.0-windows7.0/GongSolutions.WPF.DragDrop.xml"
+      ]
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+      "sha512": "3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
+        "LICENSE.TXT",
         "PACKAGE.md",
         "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/net461/Microsoft.Win32.SystemEvents.targets",
+        "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net8.0/_._",
-        "buildTransitive/netcoreapp2.0/Microsoft.Win32.SystemEvents.targets",
-        "lib/net10.0/Microsoft.Win32.SystemEvents.dll",
-        "lib/net10.0/Microsoft.Win32.SystemEvents.xml",
-        "lib/net462/Microsoft.Win32.SystemEvents.dll",
-        "lib/net462/Microsoft.Win32.SystemEvents.xml",
-        "lib/net8.0/Microsoft.Win32.SystemEvents.dll",
-        "lib/net8.0/Microsoft.Win32.SystemEvents.xml",
-        "lib/net9.0/Microsoft.Win32.SystemEvents.dll",
-        "lib/net9.0/Microsoft.Win32.SystemEvents.xml",
-        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
-        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
-        "microsoft.win32.systemevents.10.0.8.nupkg.sha512",
-        "microsoft.win32.systemevents.nuspec",
-        "runtimes/win/lib/net10.0/Microsoft.Win32.SystemEvents.dll",
-        "runtimes/win/lib/net10.0/Microsoft.Win32.SystemEvents.xml",
-        "runtimes/win/lib/net8.0/Microsoft.Win32.SystemEvents.dll",
-        "runtimes/win/lib/net8.0/Microsoft.Win32.SystemEvents.xml",
-        "runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.dll",
-        "runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.xml",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec",
         "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
+      "sha512": "dL0QGToTxggRLMYY4ZYX5AMwBb+byQBd/5dMiZE07Nv73o6I5Are3C7eQTh7K2+A4ct0PVISSr7TZANbiNb2yQ==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.abstractions/8.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/roslyn3.11/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn3.11/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn4.0/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn4.4/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "buildTransitive/net461/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/net462/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "microsoft.extensions.logging.abstractions.8.0.3.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Web.WebView2/1.0.3967.48": {
+      "sha512": "b7dZ5kZ9bfU5Yo11M8feCOoiyalXCN+2Gsw674RBDBmQ2dJV5EOXb8/ivN2LuLJ+VO2V7FmK6l6LsyfEnG1lXw==",
+      "type": "package",
+      "path": "microsoft.web.webview2/1.0.3967.48",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "NOTICE.txt",
+        "WebView2.idl",
+        "WebView2.tlb",
+        "build/Common.targets",
+        "build/Microsoft.Web.WebView2.targets",
+        "build/WebView2Rules.Project.xml",
+        "build/native/Microsoft.Web.WebView2.targets",
+        "build/native/arm64/WebView2Loader.dll",
+        "build/native/arm64/WebView2Loader.dll.lib",
+        "build/native/arm64/WebView2LoaderStatic.lib",
+        "build/native/include-winrt/WebView2Interop.h",
+        "build/native/include-winrt/WebView2Interop.idl",
+        "build/native/include-winrt/WebView2Interop.tlb",
+        "build/native/include/WebView2.h",
+        "build/native/include/WebView2EnvironmentOptions.h",
+        "build/native/x64/WebView2Loader.dll",
+        "build/native/x64/WebView2Loader.dll.lib",
+        "build/native/x64/WebView2LoaderStatic.lib",
+        "build/native/x86/WebView2Loader.dll",
+        "build/native/x86/WebView2Loader.dll.lib",
+        "build/native/x86/WebView2LoaderStatic.lib",
+        "build/wv2winrt.targets",
+        "buildTransitive/Microsoft.Web.WebView2.targets",
+        "lib/Microsoft.Web.WebView2.Core.winmd",
+        "lib/net462/Microsoft.Web.WebView2.Core.dll",
+        "lib/net462/Microsoft.Web.WebView2.Core.xml",
+        "lib/net462/Microsoft.Web.WebView2.WinForms.dll",
+        "lib/net462/Microsoft.Web.WebView2.WinForms.xml",
+        "lib/net462/Microsoft.Web.WebView2.Wpf.dll",
+        "lib/net462/Microsoft.Web.WebView2.Wpf.xml",
+        "lib_manual/net5.0-windows10.0.17763.0/Microsoft.Web.WebView2.Wpf.dll",
+        "lib_manual/net5.0-windows10.0.17763.0/Microsoft.Web.WebView2.Wpf.xml",
+        "lib_manual/net6.0-windows10.0.17763.0/Microsoft.Web.WebView2.Core.Projection.dll",
+        "lib_manual/net8.0-windows10.0.17763.0/Microsoft.Web.WebView2.Core.Projection.dll",
+        "lib_manual/netcoreapp3.0/Microsoft.Web.WebView2.Core.dll",
+        "lib_manual/netcoreapp3.0/Microsoft.Web.WebView2.Core.xml",
+        "lib_manual/netcoreapp3.0/Microsoft.Web.WebView2.WinForms.dll",
+        "lib_manual/netcoreapp3.0/Microsoft.Web.WebView2.WinForms.xml",
+        "lib_manual/netcoreapp3.0/Microsoft.Web.WebView2.Wpf.dll",
+        "lib_manual/netcoreapp3.0/Microsoft.Web.WebView2.Wpf.xml",
+        "microsoft.web.webview2.1.0.3967.48.nupkg.sha512",
+        "microsoft.web.webview2.nuspec",
+        "runtimes/win-arm64/native/WebView2Loader.dll",
+        "runtimes/win-arm64/native_uap/Microsoft.Web.WebView2.Core.dll",
+        "runtimes/win-x64/native/WebView2Loader.dll",
+        "runtimes/win-x64/native_uap/Microsoft.Web.WebView2.Core.dll",
+        "runtimes/win-x86/native/WebView2Loader.dll",
+        "runtimes/win-x86/native_uap/Microsoft.Web.WebView2.Core.dll",
+        "tools/VisualStudioToolsManifest.xml",
+        "tools/wv2winrt/Antlr3.Runtime.dll",
+        "tools/wv2winrt/Antlr4.StringTemplate.dll",
+        "tools/wv2winrt/System.Buffers.dll",
+        "tools/wv2winrt/System.CommandLine.DragonFruit.dll",
+        "tools/wv2winrt/System.CommandLine.Rendering.dll",
+        "tools/wv2winrt/System.CommandLine.dll",
+        "tools/wv2winrt/System.Memory.dll",
+        "tools/wv2winrt/System.Numerics.Vectors.dll",
+        "tools/wv2winrt/System.Runtime.CompilerServices.Unsafe.dll",
+        "tools/wv2winrt/codegen_util.dll",
+        "tools/wv2winrt/concrt140_app.dll",
+        "tools/wv2winrt/cs/System.CommandLine.resources.dll",
+        "tools/wv2winrt/de/System.CommandLine.resources.dll",
+        "tools/wv2winrt/es/System.CommandLine.resources.dll",
+        "tools/wv2winrt/fr/System.CommandLine.resources.dll",
+        "tools/wv2winrt/it/System.CommandLine.resources.dll",
+        "tools/wv2winrt/ja/System.CommandLine.resources.dll",
+        "tools/wv2winrt/ko/System.CommandLine.resources.dll",
+        "tools/wv2winrt/msvcp140_1_app.dll",
+        "tools/wv2winrt/msvcp140_2_app.dll",
+        "tools/wv2winrt/msvcp140_app.dll",
+        "tools/wv2winrt/pl/System.CommandLine.resources.dll",
+        "tools/wv2winrt/pt-BR/System.CommandLine.resources.dll",
+        "tools/wv2winrt/ru/System.CommandLine.resources.dll",
+        "tools/wv2winrt/tr/System.CommandLine.resources.dll",
+        "tools/wv2winrt/type_hierarchy.dll",
+        "tools/wv2winrt/vcamp140_app.dll",
+        "tools/wv2winrt/vccorlib140_app.dll",
+        "tools/wv2winrt/vcomp140_app.dll",
+        "tools/wv2winrt/vcruntime140_app.dll",
+        "tools/wv2winrt/winrt_winmd.dll",
+        "tools/wv2winrt/winrt_winmd.winmd",
+        "tools/wv2winrt/wv2winrt.exe",
+        "tools/wv2winrt/wv2winrt.exe.config",
+        "tools/wv2winrt/wv2winrt.xml",
+        "tools/wv2winrt/zh-Hans/System.CommandLine.resources.dll",
+        "tools/wv2winrt/zh-Hant/System.CommandLine.resources.dll"
       ]
     },
     "PdfiumViewer/2.13.0": {
@@ -219,81 +928,185 @@
         "pdfiumviewer.native.x86_64.v8-xfa.nuspec"
       ]
     },
-    "System.Drawing.Common/10.0.8": {
-      "sha512": "LCISd6JAF80vsy9L6wuetZeOMR3FH+SwKovw5Zl0Nov9pB9ZOiCSqvOfMzooypPItQLv0mGfEePjJ1nCCQztNw==",
+    "PDFsharp/6.2.4": {
+      "sha512": "GhTr9F1uOYXHCIEOB5PXIgqn5a8WLsJL2m0eewTA0IvY1j6N4HGXHKKmEyB90/N6vrjmYamf41V9zbmdW2HY3g==",
       "type": "package",
-      "path": "system.drawing.common/10.0.8",
+      "path": "pdfsharp/6.2.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "images/PDFsharp-128x128.png",
+        "lib/net10.0/PdfSharp.BarCodes.dll",
+        "lib/net10.0/PdfSharp.BarCodes.pdb",
+        "lib/net10.0/PdfSharp.BarCodes.xml",
+        "lib/net10.0/PdfSharp.Charting.dll",
+        "lib/net10.0/PdfSharp.Charting.pdb",
+        "lib/net10.0/PdfSharp.Charting.xml",
+        "lib/net10.0/PdfSharp.Cryptography.dll",
+        "lib/net10.0/PdfSharp.Cryptography.pdb",
+        "lib/net10.0/PdfSharp.Cryptography.xml",
+        "lib/net10.0/PdfSharp.Quality.dll",
+        "lib/net10.0/PdfSharp.Quality.pdb",
+        "lib/net10.0/PdfSharp.Quality.xml",
+        "lib/net10.0/PdfSharp.Shared.dll",
+        "lib/net10.0/PdfSharp.Shared.pdb",
+        "lib/net10.0/PdfSharp.Shared.xml",
+        "lib/net10.0/PdfSharp.Snippets.dll",
+        "lib/net10.0/PdfSharp.Snippets.pdb",
+        "lib/net10.0/PdfSharp.System.dll",
+        "lib/net10.0/PdfSharp.System.pdb",
+        "lib/net10.0/PdfSharp.System.xml",
+        "lib/net10.0/PdfSharp.WPFonts.dll",
+        "lib/net10.0/PdfSharp.WPFonts.pdb",
+        "lib/net10.0/PdfSharp.WPFonts.xml",
+        "lib/net10.0/PdfSharp.dll",
+        "lib/net10.0/PdfSharp.pdb",
+        "lib/net10.0/PdfSharp.xml",
+        "lib/net8.0/PdfSharp.BarCodes.dll",
+        "lib/net8.0/PdfSharp.BarCodes.pdb",
+        "lib/net8.0/PdfSharp.BarCodes.xml",
+        "lib/net8.0/PdfSharp.Charting.dll",
+        "lib/net8.0/PdfSharp.Charting.pdb",
+        "lib/net8.0/PdfSharp.Charting.xml",
+        "lib/net8.0/PdfSharp.Cryptography.dll",
+        "lib/net8.0/PdfSharp.Cryptography.pdb",
+        "lib/net8.0/PdfSharp.Cryptography.xml",
+        "lib/net8.0/PdfSharp.Quality.dll",
+        "lib/net8.0/PdfSharp.Quality.pdb",
+        "lib/net8.0/PdfSharp.Quality.xml",
+        "lib/net8.0/PdfSharp.Shared.dll",
+        "lib/net8.0/PdfSharp.Shared.pdb",
+        "lib/net8.0/PdfSharp.Shared.xml",
+        "lib/net8.0/PdfSharp.Snippets.dll",
+        "lib/net8.0/PdfSharp.Snippets.pdb",
+        "lib/net8.0/PdfSharp.System.dll",
+        "lib/net8.0/PdfSharp.System.pdb",
+        "lib/net8.0/PdfSharp.System.xml",
+        "lib/net8.0/PdfSharp.WPFonts.dll",
+        "lib/net8.0/PdfSharp.WPFonts.pdb",
+        "lib/net8.0/PdfSharp.WPFonts.xml",
+        "lib/net8.0/PdfSharp.dll",
+        "lib/net8.0/PdfSharp.pdb",
+        "lib/net8.0/PdfSharp.xml",
+        "lib/net9.0/PdfSharp.BarCodes.dll",
+        "lib/net9.0/PdfSharp.BarCodes.pdb",
+        "lib/net9.0/PdfSharp.BarCodes.xml",
+        "lib/net9.0/PdfSharp.Charting.dll",
+        "lib/net9.0/PdfSharp.Charting.pdb",
+        "lib/net9.0/PdfSharp.Charting.xml",
+        "lib/net9.0/PdfSharp.Cryptography.dll",
+        "lib/net9.0/PdfSharp.Cryptography.pdb",
+        "lib/net9.0/PdfSharp.Cryptography.xml",
+        "lib/net9.0/PdfSharp.Quality.dll",
+        "lib/net9.0/PdfSharp.Quality.pdb",
+        "lib/net9.0/PdfSharp.Quality.xml",
+        "lib/net9.0/PdfSharp.Shared.dll",
+        "lib/net9.0/PdfSharp.Shared.pdb",
+        "lib/net9.0/PdfSharp.Shared.xml",
+        "lib/net9.0/PdfSharp.Snippets.dll",
+        "lib/net9.0/PdfSharp.Snippets.pdb",
+        "lib/net9.0/PdfSharp.System.dll",
+        "lib/net9.0/PdfSharp.System.pdb",
+        "lib/net9.0/PdfSharp.System.xml",
+        "lib/net9.0/PdfSharp.WPFonts.dll",
+        "lib/net9.0/PdfSharp.WPFonts.pdb",
+        "lib/net9.0/PdfSharp.WPFonts.xml",
+        "lib/net9.0/PdfSharp.dll",
+        "lib/net9.0/PdfSharp.pdb",
+        "lib/net9.0/PdfSharp.xml",
+        "lib/netstandard2.0/PdfSharp.BarCodes.dll",
+        "lib/netstandard2.0/PdfSharp.BarCodes.pdb",
+        "lib/netstandard2.0/PdfSharp.BarCodes.xml",
+        "lib/netstandard2.0/PdfSharp.Charting.dll",
+        "lib/netstandard2.0/PdfSharp.Charting.pdb",
+        "lib/netstandard2.0/PdfSharp.Charting.xml",
+        "lib/netstandard2.0/PdfSharp.Cryptography.dll",
+        "lib/netstandard2.0/PdfSharp.Cryptography.pdb",
+        "lib/netstandard2.0/PdfSharp.Cryptography.xml",
+        "lib/netstandard2.0/PdfSharp.Quality.dll",
+        "lib/netstandard2.0/PdfSharp.Quality.pdb",
+        "lib/netstandard2.0/PdfSharp.Quality.xml",
+        "lib/netstandard2.0/PdfSharp.Shared.dll",
+        "lib/netstandard2.0/PdfSharp.Shared.pdb",
+        "lib/netstandard2.0/PdfSharp.Shared.xml",
+        "lib/netstandard2.0/PdfSharp.Snippets.dll",
+        "lib/netstandard2.0/PdfSharp.Snippets.pdb",
+        "lib/netstandard2.0/PdfSharp.System.dll",
+        "lib/netstandard2.0/PdfSharp.System.pdb",
+        "lib/netstandard2.0/PdfSharp.System.xml",
+        "lib/netstandard2.0/PdfSharp.WPFonts.dll",
+        "lib/netstandard2.0/PdfSharp.WPFonts.pdb",
+        "lib/netstandard2.0/PdfSharp.WPFonts.xml",
+        "lib/netstandard2.0/PdfSharp.dll",
+        "lib/netstandard2.0/PdfSharp.pdb",
+        "lib/netstandard2.0/PdfSharp.xml",
+        "pdfsharp.6.2.4.nupkg.sha512",
+        "pdfsharp.nuspec"
+      ]
+    },
+    "System.Security.Cryptography.Pkcs/8.0.1": {
+      "sha512": "CoCRHFym33aUSf/NtWSVSZa99dkd0Hm7OCZUxORBjRB16LNhIEOf8THPqzIYlvKM0nNDAPTRBa1FxEECrgaxxA==",
+      "type": "package",
+      "path": "system.security.cryptography.pkcs/8.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
-        "PACKAGE.md",
         "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/net461/System.Drawing.Common.targets",
+        "buildTransitive/net461/System.Security.Cryptography.Pkcs.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net8.0/_._",
-        "buildTransitive/netcoreapp2.0/System.Drawing.Common.targets",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net10.0/System.Drawing.Common.dll",
-        "lib/net10.0/System.Drawing.Common.pdb",
-        "lib/net10.0/System.Drawing.Common.xml",
-        "lib/net10.0/System.Private.Windows.Core.dll",
-        "lib/net10.0/System.Private.Windows.Core.xml",
-        "lib/net10.0/System.Private.Windows.GdiPlus.dll",
-        "lib/net10.0/System.Private.Windows.GdiPlus.xml",
-        "lib/net462/System.Drawing.Common.dll",
-        "lib/net462/System.Drawing.Common.pdb",
-        "lib/net462/System.Drawing.Common.xml",
-        "lib/net8.0/System.Drawing.Common.dll",
-        "lib/net8.0/System.Drawing.Common.pdb",
-        "lib/net8.0/System.Drawing.Common.xml",
-        "lib/net8.0/System.Private.Windows.Core.dll",
-        "lib/net8.0/System.Private.Windows.Core.xml",
-        "lib/net8.0/System.Private.Windows.GdiPlus.dll",
-        "lib/net8.0/System.Private.Windows.GdiPlus.xml",
-        "lib/net9.0/System.Drawing.Common.dll",
-        "lib/net9.0/System.Drawing.Common.pdb",
-        "lib/net9.0/System.Drawing.Common.xml",
-        "lib/net9.0/System.Private.Windows.Core.dll",
-        "lib/net9.0/System.Private.Windows.Core.xml",
-        "lib/net9.0/System.Private.Windows.GdiPlus.dll",
-        "lib/net9.0/System.Private.Windows.GdiPlus.xml",
-        "lib/netstandard2.0/System.Drawing.Common.dll",
-        "lib/netstandard2.0/System.Drawing.Common.pdb",
-        "lib/netstandard2.0/System.Drawing.Common.xml",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "system.drawing.common.10.0.8.nupkg.sha512",
-        "system.drawing.common.nuspec",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Security.Cryptography.Pkcs.targets",
+        "lib/net462/System.Security.Cryptography.Pkcs.dll",
+        "lib/net462/System.Security.Cryptography.Pkcs.xml",
+        "lib/net6.0/System.Security.Cryptography.Pkcs.dll",
+        "lib/net6.0/System.Security.Cryptography.Pkcs.xml",
+        "lib/net7.0/System.Security.Cryptography.Pkcs.dll",
+        "lib/net7.0/System.Security.Cryptography.Pkcs.xml",
+        "lib/net8.0/System.Security.Cryptography.Pkcs.dll",
+        "lib/net8.0/System.Security.Cryptography.Pkcs.xml",
+        "lib/netstandard2.0/System.Security.Cryptography.Pkcs.dll",
+        "lib/netstandard2.0/System.Security.Cryptography.Pkcs.xml",
+        "lib/netstandard2.1/System.Security.Cryptography.Pkcs.dll",
+        "lib/netstandard2.1/System.Security.Cryptography.Pkcs.xml",
+        "runtimes/win/lib/net6.0/System.Security.Cryptography.Pkcs.dll",
+        "runtimes/win/lib/net6.0/System.Security.Cryptography.Pkcs.xml",
+        "runtimes/win/lib/net7.0/System.Security.Cryptography.Pkcs.dll",
+        "runtimes/win/lib/net7.0/System.Security.Cryptography.Pkcs.xml",
+        "runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll",
+        "runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.xml",
+        "system.security.cryptography.pkcs.8.0.1.nupkg.sha512",
+        "system.security.cryptography.pkcs.nuspec",
         "useSharedDesignerContext.txt"
       ]
     }
   },
   "projectFileDependencyGroups": {
     "net9.0-windows7.0": [
+      "Autoupdater.NET.Official >= 1.9.2",
+      "Microsoft.Web.WebView2 >= 1.0.3967.48",
+      "PDFsharp >= 6.2.4",
       "PdfiumViewer >= 2.13.0",
       "PdfiumViewer.Native.x86_64.v8-xfa >= 2018.4.8.256",
-      "System.Drawing.Common >= 10.0.8"
+      "gong-wpf-dragdrop >= 4.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sm416\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.6.4",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sm416\\OneDrive\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
       "projectName": "PdfPrintUtility",
-      "projectPath": "C:\\Users\\sm416\\OneDrive\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
-      "packagesPath": "C:\\Users\\sm416\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sm416\\OneDrive\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\PdfPrintUtility.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\System\\PdfPrintUtility\\PdfPrintUtility\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\sm416\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -319,12 +1132,24 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net9.0-windows7.0": {
         "targetAlias": "net9.0-windows",
         "dependencies": {
+          "Autoupdater.NET.Official": {
+            "target": "Package",
+            "version": "[1.9.2, )"
+          },
+          "Microsoft.Web.WebView2": {
+            "target": "Package",
+            "version": "[1.0.3967.48, )"
+          },
+          "PDFsharp": {
+            "target": "Package",
+            "version": "[6.2.4, )"
+          },
           "PdfiumViewer": {
             "target": "Package",
             "version": "[2.13.0, )"
@@ -333,9 +1158,9 @@
             "target": "Package",
             "version": "[2018.4.8.256, )"
           },
-          "System.Drawing.Common": {
+          "gong-wpf-dragdrop": {
             "target": "Package",
-            "version": "[10.0.8, )"
+            "version": "[4.0.0, )"
           }
         },
         "imports": [
@@ -349,15 +1174,33 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[9.0.13, 9.0.13]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[9.0.13, 9.0.13]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[9.0.13, 9.0.13]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[9.0.13, 9.0.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           },
-          "Microsoft.WindowsDesktop.App.WPF": {
+          "Microsoft.WindowsDesktop.App": {
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.310/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

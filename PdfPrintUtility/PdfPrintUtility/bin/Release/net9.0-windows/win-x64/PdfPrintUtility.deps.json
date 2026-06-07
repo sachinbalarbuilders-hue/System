@@ -7,21 +7,128 @@
   "targets": {
     ".NETCoreApp,Version=v9.0": {},
     ".NETCoreApp,Version=v9.0/win-x64": {
-      "PdfPrintUtility/1.0.0": {
+      "PdfPrintUtility/1.0.6.4": {
         "dependencies": {
+          "Autoupdater.NET.Official": "1.9.2",
+          "Microsoft.Web.WebView2": "1.0.3967.48",
+          "PDFsharp": "6.2.4",
           "PdfiumViewer": "2.13.0",
-          "PdfiumViewer.Native.x86_64.v8-xfa": "2018.4.8.256",
-          "System.Drawing.Common": "10.0.8"
+          "gong-wpf-dragdrop": "4.0.0",
+          "Microsoft.Web.WebView2.Core": "1.0.3967.48",
+          "Microsoft.Web.WebView2.WinForms": "1.0.3967.48",
+          "Microsoft.Web.WebView2.Wpf": "1.0.3967.48"
         },
         "runtime": {
           "PdfPrintUtility.dll": {}
         }
       },
-      "Microsoft.Win32.SystemEvents/10.0.8": {
+      "Autoupdater.NET.Official/1.9.2": {
+        "dependencies": {
+          "Microsoft.Web.WebView2": "1.0.3967.48"
+        },
         "runtime": {
-          "runtimes/win/lib/net9.0/Microsoft.Win32.SystemEvents.dll": {
-            "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+          "lib/net8.0-windows7.0/AutoUpdater.NET.dll": {
+            "assemblyVersion": "1.9.2.0",
+            "fileVersion": "1.9.2.0"
+          }
+        },
+        "resources": {
+          "lib/net8.0-windows7.0/ar/AutoUpdater.NET.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/net8.0-windows7.0/cs/AutoUpdater.NET.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0-windows7.0/da/AutoUpdater.NET.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net8.0-windows7.0/de/AutoUpdater.NET.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0-windows7.0/es/AutoUpdater.NET.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0-windows7.0/fr/AutoUpdater.NET.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0-windows7.0/it/AutoUpdater.NET.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0-windows7.0/ja-JP/AutoUpdater.NET.resources.dll": {
+            "locale": "ja-JP"
+          },
+          "lib/net8.0-windows7.0/ko/AutoUpdater.NET.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0-windows7.0/lv/AutoUpdater.NET.resources.dll": {
+            "locale": "lv"
+          },
+          "lib/net8.0-windows7.0/nl/AutoUpdater.NET.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net8.0-windows7.0/pl/AutoUpdater.NET.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0-windows7.0/pt-BR/AutoUpdater.NET.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0-windows7.0/pt/AutoUpdater.NET.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net8.0-windows7.0/ru/AutoUpdater.NET.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0-windows7.0/sk/AutoUpdater.NET.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net8.0-windows7.0/sv/AutoUpdater.NET.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net8.0-windows7.0/th/AutoUpdater.NET.resources.dll": {
+            "locale": "th"
+          },
+          "lib/net8.0-windows7.0/tr/AutoUpdater.NET.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0-windows7.0/zh-TW/AutoUpdater.NET.resources.dll": {
+            "locale": "zh-TW"
+          },
+          "lib/net8.0-windows7.0/zh/AutoUpdater.NET.resources.dll": {
+            "locale": "zh"
+          }
+        }
+      },
+      "gong-wpf-dragdrop/4.0.0": {
+        "runtime": {
+          "lib/net8.0-windows7.0/GongSolutions.WPF.DragDrop.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1325.6609"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.3967.48": {
+        "native": {
+          "runtimes/win-x64/native/WebView2Loader.dll": {
+            "fileVersion": "1.0.3967.48"
           }
         }
       },
@@ -38,40 +145,115 @@
           }
         }
       },
-      "PdfiumViewer.Native.x86_64.v8-xfa/2018.4.8.256": {},
-      "System.Drawing.Common/10.0.8": {
+      "PDFsharp/6.2.4": {
         "dependencies": {
-          "Microsoft.Win32.SystemEvents": "10.0.8"
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.3"
         },
         "runtime": {
-          "lib/net9.0/System.Drawing.Common.dll": {
-            "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+          "lib/net9.0/PdfSharp.BarCodes.dll": {
+            "assemblyVersion": "6.2.4.0",
+            "fileVersion": "6.2.4.7675"
           },
-          "lib/net9.0/System.Private.Windows.Core.dll": {
-            "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+          "lib/net9.0/PdfSharp.Charting.dll": {
+            "assemblyVersion": "6.2.4.0",
+            "fileVersion": "6.2.4.7675"
           },
-          "lib/net9.0/System.Private.Windows.GdiPlus.dll": {
-            "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+          "lib/net9.0/PdfSharp.Cryptography.dll": {
+            "assemblyVersion": "6.2.4.0",
+            "fileVersion": "6.2.4.7675"
+          },
+          "lib/net9.0/PdfSharp.Quality.dll": {
+            "assemblyVersion": "6.2.4.0",
+            "fileVersion": "6.2.4.7675"
+          },
+          "lib/net9.0/PdfSharp.Shared.dll": {
+            "assemblyVersion": "6.2.4.0",
+            "fileVersion": "6.2.4.7675"
+          },
+          "lib/net9.0/PdfSharp.Snippets.dll": {
+            "assemblyVersion": "6.2.4.0",
+            "fileVersion": "6.2.4.7675"
+          },
+          "lib/net9.0/PdfSharp.System.dll": {
+            "assemblyVersion": "6.2.4.0",
+            "fileVersion": "6.2.4.7675"
+          },
+          "lib/net9.0/PdfSharp.WPFonts.dll": {
+            "assemblyVersion": "6.2.4.0",
+            "fileVersion": "6.2.4.7675"
+          },
+          "lib/net9.0/PdfSharp.dll": {
+            "assemblyVersion": "6.2.4.0",
+            "fileVersion": "6.2.4.7675"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2.Core/1.0.3967.48": {
+        "runtime": {
+          "Microsoft.Web.WebView2.Core.dll": {
+            "assemblyVersion": "1.0.3967.48",
+            "fileVersion": "1.0.3967.48"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2.WinForms/1.0.3967.48": {
+        "runtime": {
+          "Microsoft.Web.WebView2.WinForms.dll": {
+            "assemblyVersion": "1.0.3967.48",
+            "fileVersion": "1.0.3967.48"
+          }
+        }
+      },
+      "Microsoft.Web.WebView2.Wpf/1.0.3967.48": {
+        "runtime": {
+          "Microsoft.Web.WebView2.Wpf.dll": {
+            "assemblyVersion": "1.0.3967.48",
+            "fileVersion": "1.0.3967.48"
           }
         }
       }
     }
   },
   "libraries": {
-    "PdfPrintUtility/1.0.0": {
+    "PdfPrintUtility/1.0.6.4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Win32.SystemEvents/10.0.8": {
+    "Autoupdater.NET.Official/1.9.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-J9+VT0lkrA7wW38CGxO2sZd+iH9C0qzioMi/2ztpT32WOVr+04uNqFIrxisTRf+mvtXLtdqcio1AoS0vfAVLLQ==",
-      "path": "microsoft.win32.systemevents/10.0.8",
-      "hashPath": "microsoft.win32.systemevents.10.0.8.nupkg.sha512"
+      "sha512": "sha512-wVB0YMk5Dyc2UMUb46t5TVvzipfgkNHtuKh04wp14k/32nY7wMTz8gSMgiaX9WAHesW60K6J8uGz5G8gyGkEPQ==",
+      "path": "autoupdater.net.official/1.9.2",
+      "hashPath": "autoupdater.net.official.1.9.2.nupkg.sha512"
+    },
+    "gong-wpf-dragdrop/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nDj86v1XHhgmQR8PPo/uDDp/xdLDxcqZdvIwSxWAHQPiRX/GBXK13FYY0C2xQow9RSl6j5FKLk8xoYrdb52vqg==",
+      "path": "gong-wpf-dragdrop/4.0.0",
+      "hashPath": "gong-wpf-dragdrop.4.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dL0QGToTxggRLMYY4ZYX5AMwBb+byQBd/5dMiZE07Nv73o6I5Are3C7eQTh7K2+A4ct0PVISSr7TZANbiNb2yQ==",
+      "path": "microsoft.extensions.logging.abstractions/8.0.3",
+      "hashPath": "microsoft.extensions.logging.abstractions.8.0.3.nupkg.sha512"
+    },
+    "Microsoft.Web.WebView2/1.0.3967.48": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-b7dZ5kZ9bfU5Yo11M8feCOoiyalXCN+2Gsw674RBDBmQ2dJV5EOXb8/ivN2LuLJ+VO2V7FmK6l6LsyfEnG1lXw==",
+      "path": "microsoft.web.webview2/1.0.3967.48",
+      "hashPath": "microsoft.web.webview2.1.0.3967.48.nupkg.sha512"
     },
     "PdfiumViewer/2.13.0": {
       "type": "package",
@@ -80,19 +262,27 @@
       "path": "pdfiumviewer/2.13.0",
       "hashPath": "pdfiumviewer.2.13.0.nupkg.sha512"
     },
-    "PdfiumViewer.Native.x86_64.v8-xfa/2018.4.8.256": {
+    "PDFsharp/6.2.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0RQwmLMPKOHBRqRK+NPMR2H5EQ4KlYO+LnT3Y2lByVUa5/JTPCMswL46JEXX+/MAfJtCpS2PzJvy6QzpH2nuIw==",
-      "path": "pdfiumviewer.native.x86_64.v8-xfa/2018.4.8.256",
-      "hashPath": "pdfiumviewer.native.x86_64.v8-xfa.2018.4.8.256.nupkg.sha512"
+      "sha512": "sha512-GhTr9F1uOYXHCIEOB5PXIgqn5a8WLsJL2m0eewTA0IvY1j6N4HGXHKKmEyB90/N6vrjmYamf41V9zbmdW2HY3g==",
+      "path": "pdfsharp/6.2.4",
+      "hashPath": "pdfsharp.6.2.4.nupkg.sha512"
     },
-    "System.Drawing.Common/10.0.8": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-LCISd6JAF80vsy9L6wuetZeOMR3FH+SwKovw5Zl0Nov9pB9ZOiCSqvOfMzooypPItQLv0mGfEePjJ1nCCQztNw==",
-      "path": "system.drawing.common/10.0.8",
-      "hashPath": "system.drawing.common.10.0.8.nupkg.sha512"
+    "Microsoft.Web.WebView2.Core/1.0.3967.48": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Web.WebView2.WinForms/1.0.3967.48": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Web.WebView2.Wpf/1.0.3967.48": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

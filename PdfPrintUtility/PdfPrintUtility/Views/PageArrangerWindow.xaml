@@ -1,0 +1,99 @@
+<Window x:Class="PdfPrintUtility.Views.PageArrangerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dd="urn:gong-wpf-dragdrop"
+        Title="Visual Page Arranger" Height="600" Width="900"
+        WindowStartupLocation="CenterOwner" Background="#F5F5F5">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#333" Padding="15">
+            <TextBlock Text="Drag and drop pages to rearrange them into the exact order you want." 
+                       Foreground="White" FontSize="14" FontWeight="SemiBold"/>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <ListBox x:Name="PagesListBox" Background="Transparent" BorderThickness="0"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     dd:DragDrop.IsDragSource="True"
+                     dd:DragDrop.IsDropTarget="True"
+                     SelectionMode="Extended">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True" Orientation="Horizontal" Margin="10"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="160" Height="220" Margin="10" Background="White" BorderBrush="#DDD" BorderThickness="1" CornerRadius="4">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" Opacity="0.1" BlurRadius="5"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="{Binding Thumbnail}" Stretch="Uniform" Margin="10" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                <Button Width="28" Height="28" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5"
+                                        Background="#DDFFFFFF" BorderThickness="0" Cursor="Hand"
+                                        Click="RotatePage_Click" Tag="{Binding}" ToolTip="Rotate 90° CW">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="14">
+                                                <TextBlock Text="↻" FontSize="18" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-2,0,0"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                                <Button Width="28" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5"
+                                        Background="#DDFFDDDD" BorderThickness="0" Cursor="Hand"
+                                        Click="DeletePage_Click" Tag="{Binding}" ToolTip="Remove Page">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="14">
+                                                <TextBlock Text="✕" FontSize="14" FontWeight="Bold" Foreground="#CC0000" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-1,0,0"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                                <Border Grid.Row="1" Background="#F8F9FA" Padding="8,6" BorderBrush="#EEE" BorderThickness="0,1,0,0" CornerRadius="0,0,4,4">
+                                    <TextBlock Text="{Binding DisplayName}" FontSize="11" TextAlignment="Center" TextTrimming="CharacterEllipsis"/>
+                                </Border>
+                            </Grid>
+                            <Border.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Rotate 90° CW" Click="RotatePage_Click" Tag="{Binding}"/>
+                                    <MenuItem Header="Delete Page" Click="DeletePage_Click" Tag="{Binding}"/>
+                                </ContextMenu>
+                            </Border.ContextMenu>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+
+        <Grid Grid.Row="1" x:Name="LoadingOverlay" Background="#99FFFFFF" Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="LoadingText" Text="Extracting pages..." FontSize="16" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                <ProgressBar x:Name="LoadingProgress" Width="300" Height="20" Minimum="0" Maximum="100"/>
+            </StackPanel>
+        </Grid>
+
+        <Border Grid.Row="2" Background="White" BorderBrush="#DDD" BorderThickness="0,1,0,0" Padding="15">
+            <Grid>
+                <TextBlock x:Name="StatusText" VerticalAlignment="Center" Foreground="#666"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Rotate All 90°" Width="110" Height="35" Margin="0,0,10,0" Click="RotateAllBtn_Click" Background="#E0E0E0"/>
+                    <Button Content="Cancel" Width="80" Height="35" Margin="0,0,10,0" Click="CancelBtn_Click"/>
+                    <Button x:Name="SaveBtn" Content="Save Merged PDF" Width="130" Height="35" 
+                            Background="#28A745" Foreground="White" FontWeight="Bold" Click="SaveBtn_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

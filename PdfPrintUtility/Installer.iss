@@ -12,13 +12,18 @@ OutputBaseFilename=PdfPrintUtilitySetup
 ArchitecturesAllowed=x64
 ArchitecturesInstallIn64BitMode=x64
 MinVersion=10.0
+SetupIconFile=PdfPrintUtility\icon.ico
 
 [Files]
 Source: "PdfPrintUtility\bin\Release\net9.0-windows\win-x64\publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
+[Tasks]
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+
 [Icons]
 Name: "{group}\PDF Print Utility Settings"; Filename: "{app}\PdfPrintUtility.exe"
 Name: "{group}\Uninstall PDF Print Utility"; Filename: "{uninstallexe}"
+Name: "{autodesktop}\PDF Print Utility Settings"; Filename: "{app}\PdfPrintUtility.exe"; Tasks: desktopicon
 
 [Registry]
 ; Context Menu Registration for PDF files

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -6,12 +6,24 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <Version>1.0.6.4</Version>
+    <AssemblyVersion>1.0.6.4</AssemblyVersion>
+    <FileVersion>1.0.6.4</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autoupdater.NET.Official" Version="1.9.2" />
+    <PackageReference Include="gong-wpf-dragdrop" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3967.48" />
     <PackageReference Include="PdfiumViewer" Version="2.13.0" />
     <PackageReference Include="PdfiumViewer.Native.x86_64.v8-xfa" Version="2018.4.8.256" />
-    <PackageReference Include="System.Drawing.Common" Version="10.0.8" />
+    <PackageReference Include="PDFsharp" Version="6.2.4" />
+    <Resource Include="icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Remove="System.Windows.Forms" />
   </ItemGroup>
 
 </Project>

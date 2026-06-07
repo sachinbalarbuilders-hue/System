@@ -9,7 +9,7 @@ using PdfPrintUtility.Views;
 
 namespace PdfPrintUtility
 {
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
         private const string MutexName = "PdfPrintUtility_SingleInstance_Mutex";
         private const string PipeName = "PdfPrintUtility_Pipe";
@@ -59,9 +59,18 @@ namespace PdfPrintUtility
                 await Task.Delay(500);
                 _cts.Cancel(); // Stop listening
                 
-                // Open Print Job Window instead of printing immediately
-                var printJobWindow = new PrintJobWindow(_filesToPrint);
-                printJobWindow.Show();
+                if (_filesToPrint.Count == 1 && _filesToPrint[0].EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Open full screen PDF Viewer directly for a single PDF
+                    var viewerWindow = new PdfViewerWindow(_filesToPrint[0]);
+                    viewerWindow.Show();
+                }
+                else
+                {
+                    // Open Print Job Window for multiple files or non-PDF files
+                    var printJobWindow = new PrintJobWindow(_filesToPrint);
+                    printJobWindow.Show();
+                }
             }
             else
             {
