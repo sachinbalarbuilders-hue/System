@@ -276,7 +276,7 @@ namespace PdfPrintUtility.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PdfPrintUtility;V1.0.6.4;component/views/printjobwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PdfPrintUtility;V1.0.6.7;component/views/printjobwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\PrintJobWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

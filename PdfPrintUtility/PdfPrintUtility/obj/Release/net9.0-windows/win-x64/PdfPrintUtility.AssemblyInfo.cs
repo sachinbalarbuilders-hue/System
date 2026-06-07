@@ -12,11 +12,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("PdfPrintUtility")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.6.4")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.6.4+fb24746d7da72153428c6187cd44584a785d89d0")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.6.7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.6.7+68ae590b7b2bf944acbfb942b8eda61defca1674")]
 [assembly: System.Reflection.AssemblyProductAttribute("PdfPrintUtility")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PdfPrintUtility")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.6.4")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.6.7")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 

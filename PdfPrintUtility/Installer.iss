@@ -29,7 +29,7 @@ Name: "{autodesktop}\PDF Print Utility Settings"; Filename: "{app}\PdfPrintUtili
 ; Context Menu Registration for PDF files
 Root: HKCU; Subkey: "Software\Classes\SystemFileAssociations\.pdf\shell\PdfPrintUtility"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Print All PDFs"; Flags: uninsdeletekey
 Root: HKCU; Subkey: "Software\Classes\SystemFileAssociations\.pdf\shell\PdfPrintUtility"; ValueType: string; ValueName: "MultiSelectModel"; ValueData: "Player"; Flags: uninsdeletekey
-Root: HKCU; Subkey: "Software\Classes\SystemFileAssociations\.pdf\shell\PdfPrintUtility\command"; ValueType: string; ValueName: ""; ValueData: """{app}\PdfPrintUtility.exe"" ""%1"""; Flags: uninsdeletekey
+Root: HKCU; Subkey: "Software\Classes\SystemFileAssociations\.pdf\shell\PdfPrintUtility\command"; ValueType: string; ValueName: ""; ValueData: """{app}\PdfPrintUtility.exe"" -print ""%1"""; Flags: uninsdeletekey
 
 [Run]
 ; Launch the app after install so user can verify settings

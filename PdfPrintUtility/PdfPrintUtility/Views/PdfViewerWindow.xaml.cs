@@ -1,50 +1,129 @@
 using System;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
+using Microsoft.Web.WebView2.Wpf;
 
 namespace PdfPrintUtility.Views
 {
+    public class TabData
+    {
+        public string HeaderText { get; set; }
+        public string FilePath { get; set; }
+        public WebView2 WebView { get; set; }
+    }
+
     public partial class PdfViewerWindow : Window
     {
-        private readonly string _filePath;
-
         public PdfViewerWindow(string filePath)
         {
             InitializeComponent();
-            _filePath = filePath;
             
             Loaded += PdfViewerWindow_Loaded;
             Closed += PdfViewerWindow_Closed;
+            
+            if (!string.IsNullOrEmpty(filePath))
+            {
+                AddTab(filePath);
+            }
         }
 
-        private async void PdfViewerWindow_Loaded(object sender, RoutedEventArgs e)
+        private void PdfViewerWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            if (File.Exists(_filePath))
+        }
+
+        public async void AddTab(string filePath)
+        {
+            if (!File.Exists(filePath)) return;
+            
+            var webView = new WebView2();
+            
+            var tabData = new TabData 
+            { 
+                HeaderText = Path.GetFileName(filePath), 
+                FilePath = filePath,
+                WebView = webView
+            };
+
+            var tabItem = new TabItem
             {
-                Title = $"Native PDF Viewer - {Path.GetFileName(_filePath)}";
-                try
+                Header = tabData,
+                Content = webView,
+                Tag = tabData
+            };
+            
+            PdfTabControl.Items.Add(tabItem);
+            PdfTabControl.SelectedItem = tabItem;
+
+            try
+            {
+                string userDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PdfPrintUtility", "WebView2");
+                var env = await Microsoft.Web.WebView2.Core.CoreWebView2Environment.CreateAsync(null, userDataFolder);
+                await webView.EnsureCoreWebView2Async(env);
+                
+                webView.Source = new Uri(filePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Could not load PDF: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                PdfTabControl.Items.Remove(tabItem);
+                if (PdfTabControl.Items.Count == 0) Close();
+            }
+        }
+
+        private void CloseTab_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var tabData = button?.Tag as TabData;
+            
+            if (tabData != null)
+            {
+                TabItem tabToRemove = null;
+                foreach(TabItem item in PdfTabControl.Items)
                 {
-                    string userDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PdfPrintUtility", "WebView2");
-                    var env = await Microsoft.Web.WebView2.Core.CoreWebView2Environment.CreateAsync(null, userDataFolder);
-                    await WebViewControl.EnsureCoreWebView2Async(env);
-                    // Pass the file path as a URI
-                    WebViewControl.Source = new Uri(_filePath);
+                    if (item.Tag == tabData)
+                    {
+                        tabToRemove = item;
+                        break;
+                    }
                 }
-                catch (Exception ex)
+                
+                if (tabToRemove != null)
                 {
-                    MessageBox.Show($"Could not load PDF: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Close();
+                    PdfTabControl.Items.Remove(tabToRemove);
+                    
+                    try
+                    {
+                        tabData.WebView.Dispose();
+                    }
+                    catch { }
+                    
+                    if (PdfTabControl.Items.Count == 0)
+                    {
+                        Close();
+                    }
                 }
             }
         }
 
         private void PdfViewerWindow_Closed(object sender, EventArgs e)
         {
-            try
+            if (App.CurrentViewer == this)
             {
-                WebViewControl.Dispose();
+                App.CurrentViewer = null;
             }
-            catch { }
+
+            foreach(TabItem item in PdfTabControl.Items)
+            {
+                if (item.Tag is TabData data && data.WebView != null)
+                {
+                    try
+                    {
+                        data.WebView.Dispose();
+                    }
+                    catch { }
+                }
+            }
         }
     }
 }

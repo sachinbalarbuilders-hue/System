@@ -5,6 +5,25 @@
         Title="Native PDF Viewer" Height="800" Width="900"
         WindowStartupLocation="CenterOwner" Icon="/icon.png">
     <Grid>
-        <wv2:WebView2 x:Name="WebViewControl" />
+        <TabControl x:Name="PdfTabControl" Background="Transparent" BorderThickness="0">
+            <!-- Custom template for tab headers to include a close button -->
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding HeaderText}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                    <Button Content="✕" Width="16" Height="16" Background="Transparent" BorderThickness="0" 
+                                            Foreground="Gray" FontSize="10" FontWeight="Bold" Cursor="Hand"
+                                            Click="CloseTab_Click" Tag="{Binding}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Padding" Value="10,5"/>
+                </Style>
+            </TabControl.Resources>
+        </TabControl>
     </Grid>
 </Window>
