@@ -948,6 +948,30 @@ public partial class PrintJobWindow : Window
 		new HistoryWindow().ShowDialog();
 	}
 
+	private void ScanBtn_Click(object sender, RoutedEventArgs e)
+	{
+		string? scannedFilePath = PdfPrintUtility.Services.ScannerService.ScanDocument();
+		if (!string.IsNullOrEmpty(scannedFilePath))
+		{
+			ScannerWorkspaceWindow workspace = new ScannerWorkspaceWindow(scannedFilePath);
+			workspace.Owner = this;
+			if (workspace.ShowDialog() == true)
+			{
+				foreach (var file in workspace.FinalFiles)
+				{
+					if (!_observableFiles.Any(f => f.FilePath.Equals(file, StringComparison.OrdinalIgnoreCase)))
+					{
+						_observableFiles.Add(new PrintFileItem { FilePath = file });
+					}
+				}
+				if (FilesListBox.SelectedIndex == -1 && _observableFiles.Count > 0)
+				{
+					FilesListBox.SelectedIndex = 0;
+				}
+			}
+		}
+	}
+
 	private void PrintButton_Click(object sender, RoutedEventArgs e)
 	{
 		if (_observableFiles.Count == 0)

@@ -161,11 +161,13 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="HistoryBtn" Content="View History" Grid.Column="0" Height="35" Padding="15,0" Click="HistoryBtn_Click"/>
-                <Button x:Name="MergeBtn" Content="Merge PDFs" Grid.Column="2" Height="35" Width="90" Margin="0,0,10,0" Background="#28A745" Foreground="White" FontWeight="Bold" Click="MergeBtn_Click"/>
-                <Button x:Name="CancelBtn" Content="Cancel" Grid.Column="3" Height="35" Width="80" Margin="0,0,10,0" Click="CancelButton_Click"/>
-                <Button x:Name="PrintBtn" Content="Print" Grid.Column="4" Height="35" Width="100" Background="#0078D7" Foreground="White" FontWeight="Bold" Click="PrintButton_Click"/>
+                <Button x:Name="ScanBtn" Content="Scan Document" Grid.Column="2" Height="35" Width="110" Margin="0,0,10,0" Background="#17A2B8" Foreground="White" FontWeight="Bold" Click="ScanBtn_Click"/>
+                <Button x:Name="MergeBtn" Content="Merge PDFs" Grid.Column="3" Height="35" Width="90" Margin="0,0,10,0" Background="#28A745" Foreground="White" FontWeight="Bold" Click="MergeBtn_Click"/>
+                <Button x:Name="CancelBtn" Content="Cancel" Grid.Column="4" Height="35" Width="80" Margin="0,0,10,0" Click="CancelButton_Click"/>
+                <Button x:Name="PrintBtn" Content="Print" Grid.Column="5" Height="35" Width="100" Background="#0078D7" Foreground="White" FontWeight="Bold" Click="PrintButton_Click"/>
             </Grid>
         </Grid>
 

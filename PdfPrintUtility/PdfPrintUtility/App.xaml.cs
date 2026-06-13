@@ -25,6 +25,12 @@ namespace PdfPrintUtility
         {
             base.OnStartup(e);
 
+            this.DispatcherUnhandledException += (s, args) =>
+            {
+                MessageBox.Show($"Unhandled Exception: {args.Exception.Message}\n\nStack Trace:\n{args.Exception.StackTrace}", "Application Crash", MessageBoxButton.OK, MessageBoxImage.Error);
+                args.Handled = true; // Prevent silent crash
+            };
+
             bool isPrintCommand = false;
             string fileArg = null;
 
