@@ -34,7 +34,7 @@ namespace PdfPrintUtility.Views
         {
             InitializeComponent();
             PagesListBox.ItemsSource = ScannedPages;
-            
+
             if (!string.IsNullOrEmpty(initialFile))
             {
                 AddPage(initialFile);
@@ -77,7 +77,19 @@ namespace PdfPrintUtility.Views
 
         private void ScanMoreBtn_Click(object sender, RoutedEventArgs e)
         {
-            string? scannedFilePath = ScannerService.ScanDocument();
+            // Read selected DPI from combo box (default 300)
+            int dpi = 300;
+            if (DpiComboBox.SelectedItem is ComboBoxItem dpiItem &&
+                int.TryParse(dpiItem.Tag?.ToString(), out int parsedDpi))
+                dpi = parsedDpi;
+
+            // Read selected colour mode (4=Colour, 2=Greyscale, 1=B&W)
+            int colourMode = 4;
+            if (ColourModeComboBox.SelectedItem is ComboBoxItem modeItem &&
+                int.TryParse(modeItem.Tag?.ToString(), out int parsedMode))
+                colourMode = parsedMode;
+
+            string? scannedFilePath = ScannerService.ScanDocument(dpi, colourMode);
             if (!string.IsNullOrEmpty(scannedFilePath))
             {
                 AddPage(scannedFilePath);
@@ -101,6 +113,15 @@ namespace PdfPrintUtility.Views
                     RotateBtn.IsEnabled = true;
                     AutoCropBtn.IsEnabled = true;
                     TileCopiesBtn.IsEnabled = true;
+
+                    // UI REFACTOR: Update status bar with image metadata
+                    ImageDimensionsLabel.Text = $"Dimensions: {bitmap.PixelWidth} × {bitmap.PixelHeight} px";
+                    FileInfo fi = new FileInfo(page.ImagePath);
+                    if (fi.Exists)
+                    {
+                        FileSizeLabel.Text = $"File Size: {fi.Length / 1024} KB";
+                    }
+                    StatusLabel.Text = "Ready";
                 }
                 catch { }
             }
@@ -110,6 +131,11 @@ namespace PdfPrintUtility.Views
                 RotateBtn.IsEnabled = false;
                 AutoCropBtn.IsEnabled = false;
                 TileCopiesBtn.IsEnabled = false;
+
+                // UI REFACTOR: Clear status bar when no image is selected
+                ImageDimensionsLabel.Text = "Dimensions: N/A";
+                FileSizeLabel.Text = "File Size: N/A";
+                StatusLabel.Text = "Ready";
             }
         }
 
@@ -187,7 +213,7 @@ namespace PdfPrintUtility.Views
             if (PagesListBox.SelectedItem is ScannedPage page && PreviewImage.Source is BitmapSource source)
             {
                 TransformedBitmap rotated = new TransformedBitmap(source, new RotateTransform(90));
-                
+
                 string newPath = Path.Combine(Path.GetTempPath(), $"Rotated_{Guid.NewGuid():N}.jpg");
                 using (FileStream fs = new FileStream(newPath, FileMode.Create))
                 {
@@ -197,9 +223,9 @@ namespace PdfPrintUtility.Views
                 }
 
                 page.ImagePath = newPath;
-                
+
                 PagesListBox.Items.Refresh();
-                
+
                 int idx = PagesListBox.SelectedIndex;
                 PagesListBox.SelectedIndex = -1;
                 PagesListBox.SelectedIndex = idx;
@@ -210,41 +236,53 @@ namespace PdfPrintUtility.Views
         {
             if (PagesListBox.SelectedItem is ScannedPage page && PreviewImage.Source is BitmapSource source)
             {
-                double x = Canvas.GetLeft(CropRectangle);
-                double y = Canvas.GetTop(CropRectangle);
-                double w = CropRectangle.Width;
-                double h = CropRectangle.Height;
+                // UI REFACTOR: Show wait cursor for crop
+                Mouse.OverrideCursor = Cursors.Wait;
+                StatusLabel.Text = "Cropping...";
 
-                // Scale to actual image pixels
-                double scaleX = source.PixelWidth / PreviewImage.ActualWidth;
-                double scaleY = source.PixelHeight / PreviewImage.ActualHeight;
-
-                int px = (int)(x * scaleX);
-                int py = (int)(y * scaleY);
-                int pw = (int)(w * scaleX);
-                int ph = (int)(h * scaleY);
-
-                if (pw > 0 && ph > 0)
+                try
                 {
-                    CroppedBitmap cropped = new CroppedBitmap(source, new Int32Rect(px, py, pw, ph));
-                    
-                    // Save cropped image
-                    string newPath = Path.Combine(Path.GetTempPath(), $"Cropped_{Guid.NewGuid():N}.jpg");
-                    using (FileStream fs = new FileStream(newPath, FileMode.Create))
-                    {
-                        JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-                        encoder.Frames.Add(BitmapFrame.Create(cropped));
-                        encoder.Save(fs);
-                    }
+                    double x = Canvas.GetLeft(CropRectangle);
+                    double y = Canvas.GetTop(CropRectangle);
+                    double w = CropRectangle.Width;
+                    double h = CropRectangle.Height;
 
-                    page.ImagePath = newPath;
-                    
-                    PagesListBox.Items.Refresh();
-                    
-                    // Refresh view
-                    int idx = PagesListBox.SelectedIndex;
-                    PagesListBox.SelectedIndex = -1;
-                    PagesListBox.SelectedIndex = idx;
+                    // Scale to actual image pixels
+                    double scaleX = source.PixelWidth / PreviewImage.ActualWidth;
+                    double scaleY = source.PixelHeight / PreviewImage.ActualHeight;
+
+                    int px = (int)(x * scaleX);
+                    int py = (int)(y * scaleY);
+                    int pw = (int)(w * scaleX);
+                    int ph = (int)(h * scaleY);
+
+                    if (pw > 0 && ph > 0)
+                    {
+                        CroppedBitmap cropped = new CroppedBitmap(source, new Int32Rect(px, py, pw, ph));
+
+                        // Save cropped image
+                        string newPath = Path.Combine(Path.GetTempPath(), $"Cropped_{Guid.NewGuid():N}.jpg");
+                        using (FileStream fs = new FileStream(newPath, FileMode.Create))
+                        {
+                            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                            encoder.Frames.Add(BitmapFrame.Create(cropped));
+                            encoder.Save(fs);
+                        }
+
+                        page.ImagePath = newPath;
+
+                        PagesListBox.Items.Refresh();
+
+                        // Refresh view
+                        int idx = PagesListBox.SelectedIndex;
+                        PagesListBox.SelectedIndex = -1;
+                        PagesListBox.SelectedIndex = idx;
+                    }
+                }
+                finally
+                {
+                    Mouse.OverrideCursor = null;
+                    StatusLabel.Text = "Ready";
                 }
             }
         }
@@ -261,6 +299,10 @@ namespace PdfPrintUtility.Views
 
             try
             {
+                // UI REFACTOR: Wait cursor for tiling
+                Mouse.OverrideCursor = Cursors.Wait;
+                StatusLabel.Text = "Generating Tile Sheet...";
+
                 // Load the source image
                 BitmapImage src = new BitmapImage();
                 src.BeginInit();
@@ -375,6 +417,11 @@ namespace PdfPrintUtility.Views
             {
                 MessageBox.Show($"Failed to generate tile sheet: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            finally
+            {
+                Mouse.OverrideCursor = null;
+                StatusLabel.Text = "Ready";
+            }
         }
 
         private void AutoCropBtn_Click(object sender, RoutedEventArgs e)
@@ -383,6 +430,10 @@ namespace PdfPrintUtility.Views
 
             try
             {
+                // UI REFACTOR: Wait cursor for auto crop
+                Mouse.OverrideCursor = Cursors.Wait;
+                StatusLabel.Text = "Auto Cropping...";
+
                 // Always load fresh from file for accurate pixel data
                 BitmapImage srcImg = new BitmapImage();
                 srcImg.BeginInit();
@@ -422,7 +473,7 @@ namespace PdfPrintUtility.Views
 
                 // ── Step 2: Row/Column voting — a row/column is "content" if ≥2% pixels differ ──
                 const double pixThreshold = 55.0;   // per-pixel color diff to call it content
-                const double rowVoteRatio  = 0.015;  // 1.5% of row/col pixels must be content
+                const double rowVoteRatio = 0.015;  // 1.5% of row/col pixels must be content
 
                 int top = 0, bottom = height - 1, left = 0, right = width - 1;
 
@@ -433,7 +484,7 @@ namespace PdfPrintUtility.Views
                     for (int x = 0; x < width; x++)
                     {
                         int i = y * stride + x * 4;
-                        if (Math.Abs(pixels[i+2] - medBgR) + Math.Abs(pixels[i+1] - medBgG) + Math.Abs(pixels[i] - medBgB) > pixThreshold)
+                        if (Math.Abs(pixels[i + 2] - medBgR) + Math.Abs(pixels[i + 1] - medBgG) + Math.Abs(pixels[i] - medBgB) > pixThreshold)
                             cnt++;
                     }
                     if (cnt >= width * rowVoteRatio) { top = y; break; }
@@ -446,7 +497,7 @@ namespace PdfPrintUtility.Views
                     for (int x = 0; x < width; x++)
                     {
                         int i = y * stride + x * 4;
-                        if (Math.Abs(pixels[i+2] - medBgR) + Math.Abs(pixels[i+1] - medBgG) + Math.Abs(pixels[i] - medBgB) > pixThreshold)
+                        if (Math.Abs(pixels[i + 2] - medBgR) + Math.Abs(pixels[i + 1] - medBgG) + Math.Abs(pixels[i] - medBgB) > pixThreshold)
                             cnt++;
                     }
                     if (cnt >= width * rowVoteRatio) { bottom = y; break; }
@@ -459,7 +510,7 @@ namespace PdfPrintUtility.Views
                     for (int y = 0; y < height; y++)
                     {
                         int i = y * stride + x * 4;
-                        if (Math.Abs(pixels[i+2] - medBgR) + Math.Abs(pixels[i+1] - medBgG) + Math.Abs(pixels[i] - medBgB) > pixThreshold)
+                        if (Math.Abs(pixels[i + 2] - medBgR) + Math.Abs(pixels[i + 1] - medBgG) + Math.Abs(pixels[i] - medBgB) > pixThreshold)
                             cnt++;
                     }
                     if (cnt >= height * rowVoteRatio) { left = x; break; }
@@ -472,7 +523,7 @@ namespace PdfPrintUtility.Views
                     for (int y = 0; y < height; y++)
                     {
                         int i = y * stride + x * 4;
-                        if (Math.Abs(pixels[i+2] - medBgR) + Math.Abs(pixels[i+1] - medBgG) + Math.Abs(pixels[i] - medBgB) > pixThreshold)
+                        if (Math.Abs(pixels[i + 2] - medBgR) + Math.Abs(pixels[i + 1] - medBgG) + Math.Abs(pixels[i] - medBgB) > pixThreshold)
                             cnt++;
                     }
                     if (cnt >= height * rowVoteRatio) { right = x; break; }
@@ -480,10 +531,10 @@ namespace PdfPrintUtility.Views
 
                 // ── Step 3: Add padding and crop ──
                 int padding = 18;
-                top    = Math.Max(0, top - padding);
+                top = Math.Max(0, top - padding);
                 bottom = Math.Min(height - 1, bottom + padding);
-                left   = Math.Max(0, left - padding);
-                right  = Math.Min(width - 1, right + padding);
+                left = Math.Max(0, left - padding);
+                right = Math.Min(width - 1, right + padding);
 
                 int pw = right - left + 1;
                 int ph = bottom - top + 1;
@@ -518,6 +569,11 @@ namespace PdfPrintUtility.Views
             catch (Exception ex)
             {
                 MessageBox.Show($"Auto Crop failed: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                Mouse.OverrideCursor = null;
+                StatusLabel.Text = "Ready";
             }
         }
 
@@ -592,10 +648,10 @@ namespace PdfPrintUtility.Views
             {
                 FinalFiles.Add(page.ImagePath);
             }
-            try 
+            try
             {
                 DialogResult = true;
-            } 
+            }
             catch { }
         }
     }

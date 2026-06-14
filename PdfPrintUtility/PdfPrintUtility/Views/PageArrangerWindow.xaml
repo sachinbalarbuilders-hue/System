@@ -88,10 +88,9 @@
             <Grid>
                 <TextBlock x:Name="StatusText" VerticalAlignment="Center" Foreground="#666"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="Rotate All 90°" Width="110" Height="35" Margin="0,0,10,0" Click="RotateAllBtn_Click" Background="#E0E0E0"/>
-                    <Button Content="Cancel" Width="80" Height="35" Margin="0,0,10,0" Click="CancelBtn_Click"/>
-                    <Button x:Name="SaveBtn" Content="Save Merged PDF" Width="130" Height="35" 
-                            Background="#28A745" Foreground="White" FontWeight="Bold" Click="SaveBtn_Click"/>
+                    <Button Content="Rotate All 90°" Margin="0,0,10,0" Click="RotateAllBtn_Click" Style="{StaticResource SecondaryBtnStyle}"/>
+                    <Button Content="Cancel" Margin="0,0,10,0" Click="CancelBtn_Click" Style="{StaticResource DestructiveBtnStyle}"/>
+                    <Button x:Name="SaveBtn" Content="Save Merged PDF" Style="{StaticResource PrimaryBtnStyle}" Click="SaveBtn_Click"/>
                 </StackPanel>
             </Grid>
         </Border>

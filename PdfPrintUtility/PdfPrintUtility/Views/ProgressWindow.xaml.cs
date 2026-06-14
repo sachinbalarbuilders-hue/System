@@ -35,7 +35,7 @@ namespace PdfPrintUtility.Views
             int successCount = 0;
             int failCount = 0;
 
-            var progress = new Progress<(int Index, string FileName)>(data => 
+            var progress = new Progress<(int Index, string FileName)>(data =>
             {
                 StatusTextBlock.Text = $"Printing {data.Index + 1} of {_files.Count}...";
                 DetailsTextBlock.Text = data.FileName;
@@ -50,11 +50,11 @@ namespace PdfPrintUtility.Views
                 {
                     string file = _files[i];
                     string fileName = Path.GetFileName(file);
-                    
+
                     progressReporter.Report((i, fileName));
 
                     bool success = PrintManager.PrintFile(file, _settings, _pageRange, out string errorMessage);
-                    
+
                     if (success)
                     {
                         successCount++;
@@ -74,7 +74,7 @@ namespace PdfPrintUtility.Views
 
             string summaryMsg = $"All documents have been sent to the printer spooler.\n\nTotal files: {_files.Count}\nSuccess: {successCount}\nFailed: {failCount}\n\nThe physical printer may still be printing.";
             MessageBox.Show(summaryMsg, "Print Job Queued", MessageBoxButton.OK, MessageBoxImage.Information);
-            
+
             Application.Current.Shutdown();
         }
     }

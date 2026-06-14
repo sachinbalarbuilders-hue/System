@@ -66,7 +66,7 @@ namespace PdfPrintUtility.Views
             {
                 double availW = Math.Max(100, PreviewScrollViewer.ActualWidth - 60);
                 double availH = Math.Max(100, PreviewScrollViewer.ActualHeight - 60);
-                double pageWidthAt150  = pageSize.Width  * BaseDpi / 72.0;
+                double pageWidthAt150 = pageSize.Width * BaseDpi / 72.0;
                 double pageHeightAt150 = pageSize.Height * BaseDpi / 72.0;
                 double scaleW = availW / pageWidthAt150;
                 double scaleH = availH / pageHeightAt150;
@@ -79,7 +79,7 @@ namespace PdfPrintUtility.Views
 
             dpi = Math.Max(10f, dpi);
 
-            int width  = Math.Max(1, (int)(pageSize.Width  * dpi / 72.0));
+            int width = Math.Max(1, (int)(pageSize.Width * dpi / 72.0));
             int height = Math.Max(1, (int)(pageSize.Height * dpi / 72.0));
 
             using var bitmap = (System.Drawing.Bitmap)_document.Render(pageIndex, width, height, dpi, dpi, false);

@@ -39,7 +39,7 @@ namespace PdfPrintUtility.Services
 
                 string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 string user = Environment.UserName;
-                
+
                 // Escape commas in filenames or errors
                 fileName = $"\"{fileName.Replace("\"", "\"\"")}\"";
                 errorDetails = $"\"{errorDetails.Replace("\"", "\"\"")}\"";

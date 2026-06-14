@@ -107,3 +107,7 @@ C:\Users\Admin\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0
 C:\Users\Admin\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\Microsoft.Web.WebView2.Core.xml
 C:\Users\Admin\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\Microsoft.Web.WebView2.WinForms.xml
 C:\Users\Admin\Desktop\System\PdfPrintUtility\PdfPrintUtility\bin\Release\net9.0-windows\win-x64\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\Admin\Desktop\System\PdfPrintUtility\PdfPrintUtility\obj\Release\net9.0-windows\win-x64\Views\ScannerWorkspaceWindow.baml
+C:\Users\Admin\Desktop\System\PdfPrintUtility\PdfPrintUtility\obj\Release\net9.0-windows\win-x64\Views\ScannerWorkspaceWindow.g.cs
+C:\Users\Admin\Desktop\System\PdfPrintUtility\PdfPrintUtility\obj\Release\net9.0-windows\win-x64\PdfPrintUtility_MarkupCompile.lref
+C:\Users\Admin\Desktop\System\PdfPrintUtility\PdfPrintUtility\obj\Release\net9.0-windows\win-x64\App.baml

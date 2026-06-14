@@ -2,7 +2,62 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:PdfPrintUtility">
+    <!-- UI REFACTOR: Centralized typography and button styling for consistency (Segoe UI, padding, minimum size) -->
     <Application.Resources>
-         
+        <!-- Typography Base -->
+        <Style TargetType="Window">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="13" />
+        </Style>
+
+        <!-- Base Button Style -->
+        <Style x:Key="BaseBtnStyle" TargetType="Button">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="MinWidth" Value="100" />
+            <Setter Property="MinHeight" Value="32" />
+            <Setter Property="Padding" Value="12,5" />
+            <Setter Property="Margin" Value="6" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+
+        <!-- Primary Action Button (Blue #2563EB) -->
+        <Style x:Key="PrimaryBtnStyle" TargetType="Button" BasedOn="{StaticResource BaseBtnStyle}">
+            <Setter Property="Background" Value="#2563EB" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
+        <!-- Secondary/Ghost Action Button -->
+        <Style x:Key="SecondaryBtnStyle" TargetType="Button" BasedOn="{StaticResource BaseBtnStyle}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="BorderBrush" Value="#CCCCCC" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <!-- Destructive Action Button (Red) -->
+        <Style x:Key="DestructiveBtnStyle" TargetType="Button" BasedOn="{StaticResource BaseBtnStyle}">
+            <Setter Property="Background" Value="#DC2626" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        
+        <!-- Headers -->
+        <Style x:Key="SectionHeaderStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="0,0,0,12" />
+        </Style>
     </Application.Resources>
 </Application>

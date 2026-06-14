@@ -52,7 +52,7 @@ namespace PdfPrintUtility.Views
                 {
                     var fileItem = _sourceFiles[i];
                     if (!File.Exists(fileItem.FilePath)) continue;
-                    
+
                     string ext = Path.GetExtension(fileItem.FilePath).ToLowerInvariant();
                     if (ext != ".pdf") continue; // Merging only supports PDFs right now
 
@@ -135,7 +135,7 @@ namespace PdfPrintUtility.Views
                 // For simplicity, we just change the data and use a LayoutTransform or re-render.
                 // Let's just do a quick re-render of the thumbnail since we have the path.
                 item.Rotation = (item.Rotation + 90) % 360;
-                
+
                 try
                 {
                     using (var doc = PdfDocument.Load(item.SourceFilePath))
@@ -260,7 +260,7 @@ namespace PdfPrintUtility.Views
             if (dialog.ShowDialog() == true)
             {
                 string outPath = dialog.FileName;
-                
+
                 LoadingOverlay.Visibility = Visibility.Visible;
                 LoadingText.Text = "Saving merged PDF...";
                 SaveBtn.IsEnabled = false;

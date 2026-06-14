@@ -1,5 +1,5 @@
 ﻿PdfPrintUtility
-1.0.6.7
+1.4.0.5
 
 winexe
 C#
@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\Admin\Desktop\System\PdfPrintUtility\PdfPrintUtility\App.xaml
-6-1213372884
+7-2105167999
 21511915045
-151522290469
+17-1377120654
 227-375219004
-Views\HistoryWindow.xaml;Views\PageArrangerWindow.xaml;Views\PdfViewerWindow.xaml;Views\PreviewWindow.xaml;Views\PrintJobWindow.xaml;Views\ProgressWindow.xaml;
+Views\HistoryWindow.xaml;Views\PageArrangerWindow.xaml;Views\PdfViewerWindow.xaml;Views\PreviewWindow.xaml;Views\PrintJobWindow.xaml;Views\ProgressWindow.xaml;Views\ScannerWorkspaceWindow.xaml;
 
 False
 

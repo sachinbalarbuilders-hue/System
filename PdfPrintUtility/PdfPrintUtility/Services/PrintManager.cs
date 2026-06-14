@@ -14,15 +14,15 @@ namespace PdfPrintUtility.Services
     {
         // Supported extensions
         public static readonly string[] ImageExtensions = { ".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".tif", ".gif" };
-        public static readonly string[] WordExtensions  = { ".doc", ".docx" };
+        public static readonly string[] WordExtensions = { ".doc", ".docx" };
 
         // ─── Route to correct printer based on file type ───
         public static bool PrintFile(string filePath, PrintSettings settings, string pageRange, out string errorMessage)
         {
             string ext = Path.GetExtension(filePath).ToLowerInvariant();
-            if (ext == ".pdf")                                    return PrintPdf(filePath, settings, pageRange, out errorMessage);
-            if (Array.Exists(ImageExtensions, e => e == ext))    return PrintImage(filePath, settings, out errorMessage);
-            if (Array.Exists(WordExtensions,  e => e == ext))    return PrintWord(filePath, settings, out errorMessage);
+            if (ext == ".pdf") return PrintPdf(filePath, settings, pageRange, out errorMessage);
+            if (Array.Exists(ImageExtensions, e => e == ext)) return PrintImage(filePath, settings, out errorMessage);
+            if (Array.Exists(WordExtensions, e => e == ext)) return PrintWord(filePath, settings, out errorMessage);
             errorMessage = $"Unsupported file type: {ext}";
             return false;
         }
@@ -101,9 +101,9 @@ namespace PdfPrintUtility.Services
                     {
                         if (src.SourceName.Equals(settings.PaperTray, StringComparison.OrdinalIgnoreCase) ||
                             src.SourceName.Contains(settings.PaperTray, StringComparison.OrdinalIgnoreCase))
-                        { 
-                            printDoc.DefaultPageSettings.PaperSource = src; 
-                            break; 
+                        {
+                            printDoc.DefaultPageSettings.PaperSource = src;
+                            break;
                         }
                     }
                 }
@@ -130,7 +130,7 @@ namespace PdfPrintUtility.Services
                     var bounds = e.MarginBounds;
                     float sx = (float)bounds.Width / bmp.Width;
                     float sy = (float)bounds.Height / bmp.Height;
-                    float scale = settings.FitMode == "ActualSize"   ? 1f
+                    float scale = settings.FitMode == "ActualSize" ? 1f
                                 : settings.FitMode == "ShrinkToFit" ? Math.Min(1f, Math.Min(sx, sy))
                                 : Math.Min(sx, sy); // FitToPage
                     int dw = (int)(bmp.Width * scale), dh = (int)(bmp.Height * scale);
@@ -171,11 +171,11 @@ namespace PdfPrintUtility.Services
                 // "PrintTo" verb opens Word silently and prints to the specified printer
                 var psi = new System.Diagnostics.ProcessStartInfo
                 {
-                    FileName  = filePath,
-                    Verb      = "PrintTo",
+                    FileName = filePath,
+                    Verb = "PrintTo",
                     Arguments = $"\"{targetPrinter}\"",
-                    CreateNoWindow  = true,
-                    WindowStyle     = System.Diagnostics.ProcessWindowStyle.Hidden,
+                    CreateNoWindow = true,
+                    WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
                     UseShellExecute = true
                 };
 
@@ -198,7 +198,7 @@ namespace PdfPrintUtility.Services
 
             try
             {
-                string targetPrinter = string.IsNullOrWhiteSpace(settings.DefaultPrinter) 
+                string targetPrinter = string.IsNullOrWhiteSpace(settings.DefaultPrinter)
                     ? new PrinterSettings().PrinterName // Use system default
                     : settings.DefaultPrinter;
 
@@ -332,10 +332,10 @@ namespace PdfPrintUtility.Services
 
                             // Native size in printer units (100ths of an inch)
                             float printerDpi = pe.Graphics.DpiX;
-                            float nativeW = pageSz.Width  / 72f * printerDpi;
+                            float nativeW = pageSz.Width / 72f * printerDpi;
                             float nativeH = pageSz.Height / 72f * printerDpi;
-                            float printW  = pe.PageBounds.Width  * printerDpi / 100f;
-                            float printH  = pe.PageBounds.Height * printerDpi / 100f;
+                            float printW = pe.PageBounds.Width * printerDpi / 100f;
+                            float printH = pe.PageBounds.Height * printerDpi / 100f;
 
                             float scale = 1f;
                             if (settings.FitMode == "ShrinkToFit")
@@ -354,7 +354,7 @@ namespace PdfPrintUtility.Services
 
                     printDocument.Print();
                 }
-                
+
                 return true;
             }
             catch (Exception ex)
@@ -376,30 +376,30 @@ namespace PdfPrintUtility.Services
                     queue.Refresh();
 
                     if (queue.IsOffline) { errorMessage = "Printer is offline."; return false; }
-                    if (queue.IsOutOfPaper || queue.HasPaperProblem || ((queue.QueueStatus & PrintQueueStatus.PaperOut) == PrintQueueStatus.PaperOut)) 
-                    { 
-                        errorMessage = "Printer is out of paper."; 
-                        return false; 
+                    if (queue.IsOutOfPaper || queue.HasPaperProblem || ((queue.QueueStatus & PrintQueueStatus.PaperOut) == PrintQueueStatus.PaperOut))
+                    {
+                        errorMessage = "Printer is out of paper.";
+                        return false;
                     }
-                    if (queue.IsPaperJammed || ((queue.QueueStatus & PrintQueueStatus.PaperJam) == PrintQueueStatus.PaperJam)) 
-                    { 
-                        errorMessage = "Printer has a paper jam."; 
-                        return false; 
+                    if (queue.IsPaperJammed || ((queue.QueueStatus & PrintQueueStatus.PaperJam) == PrintQueueStatus.PaperJam))
+                    {
+                        errorMessage = "Printer has a paper jam.";
+                        return false;
                     }
-                    if (queue.IsDoorOpened || ((queue.QueueStatus & PrintQueueStatus.DoorOpen) == PrintQueueStatus.DoorOpen)) 
-                    { 
-                        errorMessage = "Printer door is open."; 
-                        return false; 
+                    if (queue.IsDoorOpened || ((queue.QueueStatus & PrintQueueStatus.DoorOpen) == PrintQueueStatus.DoorOpen))
+                    {
+                        errorMessage = "Printer door is open.";
+                        return false;
                     }
-                    if (((queue.QueueStatus & PrintQueueStatus.NotAvailable) == PrintQueueStatus.NotAvailable)) 
-                    { 
-                        errorMessage = "Printer is not responding."; 
-                        return false; 
+                    if (((queue.QueueStatus & PrintQueueStatus.NotAvailable) == PrintQueueStatus.NotAvailable))
+                    {
+                        errorMessage = "Printer is not responding.";
+                        return false;
                     }
-                    if (queue.IsInError || ((queue.QueueStatus & PrintQueueStatus.Error) == PrintQueueStatus.Error)) 
-                    { 
-                        errorMessage = "Printer is in an error state."; 
-                        return false; 
+                    if (queue.IsInError || ((queue.QueueStatus & PrintQueueStatus.Error) == PrintQueueStatus.Error))
+                    {
+                        errorMessage = "Printer is in an error state.";
+                        return false;
                     }
                 }
                 return true;
@@ -419,7 +419,7 @@ namespace PdfPrintUtility.Services
                 result.Add((1, maxPages));
                 return result;
             }
-            
+
             var parts = input.Split(',');
             foreach (var part in parts)
             {
@@ -440,7 +440,7 @@ namespace PdfPrintUtility.Services
                     result.Add((page, page));
                 }
             }
-            
+
             if (result.Count == 0) result.Add((1, maxPages));
             return result;
         }

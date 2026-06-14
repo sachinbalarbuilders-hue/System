@@ -18,10 +18,10 @@ namespace PdfPrintUtility.Views
         public PdfViewerWindow(string filePath)
         {
             InitializeComponent();
-            
+
             Loaded += PdfViewerWindow_Loaded;
             Closed += PdfViewerWindow_Closed;
-            
+
             if (!string.IsNullOrEmpty(filePath))
             {
                 AddTab(filePath);
@@ -35,12 +35,12 @@ namespace PdfPrintUtility.Views
         public async void AddTab(string filePath)
         {
             if (!File.Exists(filePath)) return;
-            
+
             var webView = new WebView2();
-            
-            var tabData = new TabData 
-            { 
-                HeaderText = Path.GetFileName(filePath), 
+
+            var tabData = new TabData
+            {
+                HeaderText = Path.GetFileName(filePath),
                 FilePath = filePath,
                 WebView = webView
             };
@@ -51,7 +51,7 @@ namespace PdfPrintUtility.Views
                 Content = webView,
                 Tag = tabData
             };
-            
+
             PdfTabControl.Items.Add(tabItem);
             PdfTabControl.SelectedItem = tabItem;
 
@@ -60,7 +60,7 @@ namespace PdfPrintUtility.Views
                 string userDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PdfPrintUtility", "WebView2");
                 var env = await Microsoft.Web.WebView2.Core.CoreWebView2Environment.CreateAsync(null, userDataFolder);
                 await webView.EnsureCoreWebView2Async(env);
-                
+
                 webView.Source = new Uri(filePath);
             }
             catch (Exception ex)
@@ -75,11 +75,11 @@ namespace PdfPrintUtility.Views
         {
             var button = sender as Button;
             var tabData = button?.Tag as TabData;
-            
+
             if (tabData != null)
             {
                 TabItem tabToRemove = null;
-                foreach(TabItem item in PdfTabControl.Items)
+                foreach (TabItem item in PdfTabControl.Items)
                 {
                     if (item.Tag == tabData)
                     {
@@ -87,17 +87,17 @@ namespace PdfPrintUtility.Views
                         break;
                     }
                 }
-                
+
                 if (tabToRemove != null)
                 {
                     PdfTabControl.Items.Remove(tabToRemove);
-                    
+
                     try
                     {
                         tabData.WebView.Dispose();
                     }
                     catch { }
-                    
+
                     if (PdfTabControl.Items.Count == 0)
                     {
                         Close();
@@ -113,7 +113,7 @@ namespace PdfPrintUtility.Views
                 App.CurrentViewer = null;
             }
 
-            foreach(TabItem item in PdfTabControl.Items)
+            foreach (TabItem item in PdfTabControl.Items)
             {
                 if (item.Tag is TabData data && data.WebView != null)
                 {

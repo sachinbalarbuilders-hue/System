@@ -25,6 +25,13 @@ namespace PdfPrintUtility.Models
     {
         public List<PrintSettings> Profiles { get; set; } = new List<PrintSettings>();
         public string LastUsedProfile { get; set; } = "Default";
+
+        // Window geometry
+        public double WindowWidth { get; set; } = 960;
+        public double WindowHeight { get; set; } = 700;
+        public double WindowLeft { get; set; } = double.NaN;
+        public double WindowTop { get; set; } = double.NaN;
+        public string WindowState { get; set; } = "Normal"; // Normal, Maximized
     }
 
     public static class SettingsManager
@@ -45,7 +52,7 @@ namespace PdfPrintUtility.Models
                         return data;
                     }
                 }
-                
+
                 // Fallback to v1 settings
                 string v1File = Path.Combine(AppDataFolder, "settings.json");
                 if (File.Exists(v1File))
@@ -62,7 +69,7 @@ namespace PdfPrintUtility.Models
                 }
             }
             catch { }
-            
+
             var newData = new SettingsData { LastUsedProfile = "Default" };
             newData.Profiles.Add(new PrintSettings { ProfileName = "Default" });
             return newData;

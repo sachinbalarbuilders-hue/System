@@ -64,7 +64,7 @@ namespace PdfPrintUtility
                         // Ignore errors if pipe fails
                     }
                 }
-                
+
                 Shutdown();
                 return;
             }
@@ -73,14 +73,14 @@ namespace PdfPrintUtility
             if (fileArg != null)
             {
                 _filesToPrint.Add(fileArg);
-                
+
                 // Start listening on named pipe for other instances
                 _ = Task.Run(() => ListenForFilesAsync(_cts.Token));
 
                 // Wait 500ms to collect all paths from secondary instances
                 await Task.Delay(500);
                 _startupComplete = true; // Mark startup as complete, but DO NOT stop listening!
-                
+
                 // If it's a single file and NOT a print command, open Viewer
                 if (!isPrintCommand && _filesToPrint.Count == 1 && _filesToPrint[0].EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
                 {
@@ -111,23 +111,23 @@ namespace PdfPrintUtility
                 {
                     using var server = new NamedPipeServerStream(PipeName, PipeDirection.In, NamedPipeServerStream.MaxAllowedServerInstances, PipeTransmissionMode.Message, PipeOptions.Asynchronous);
                     await server.WaitForConnectionAsync(token);
-                    
+
                     using var reader = new StreamReader(server);
                     string line = await reader.ReadLineAsync();
                     if (!string.IsNullOrWhiteSpace(line))
                     {
                         string file = line;
                         bool isPrintMsg = false;
-                        
+
                         if (line.StartsWith("-print|"))
                         {
                             isPrintMsg = true;
                             file = line.Substring(7);
                         }
-                        
+
                         if (!string.IsNullOrWhiteSpace(file))
                         {
-                            Dispatcher.Invoke(() => 
+                            Dispatcher.Invoke(() =>
                             {
                                 if (!_startupComplete)
                                 {

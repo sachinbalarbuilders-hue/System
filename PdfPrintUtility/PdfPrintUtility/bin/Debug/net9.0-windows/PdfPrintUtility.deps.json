@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v9.0": {
-      "PdfPrintUtility/1.0.6.2": {
+      "PdfPrintUtility/1.4.0.4": {
         "dependencies": {
           "Autoupdater.NET.Official": "1.9.2",
           "Microsoft.Web.WebView2": "1.0.3967.48",
@@ -226,7 +226,7 @@
     }
   },
   "libraries": {
-    "PdfPrintUtility/1.0.6.2": {
+    "PdfPrintUtility/1.4.0.4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

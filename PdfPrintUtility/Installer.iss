@@ -33,7 +33,7 @@ Root: HKCU; Subkey: "Software\Classes\SystemFileAssociations\.pdf\shell\PdfPrint
 
 [Run]
 ; Launch the app after install so user can verify settings
-Filename: "{app}\PdfPrintUtility.exe"; Description: "Open PDF Print Utility Settings"; Flags: postinstall nowait skipifsilent
+Filename: "{app}\PdfPrintUtility.exe"; Description: "Open PDF Print Utility Settings"; Flags: postinstall nowait skipifsilent runasoriginaluser
 
 [Code]
 // Check if .NET 9 Desktop Runtime is installed
